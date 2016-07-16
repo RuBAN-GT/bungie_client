@@ -1,3 +1,5 @@
+[![Gem Version](https://badge.fury.io/rb/bungie_client.svg)](https://badge.fury.io/rb/bungie_client)
+
 # Bungie Client
 
 This gem makes possible to use [Bungie API](http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints) (and Destiny API too) with authentication if necessary.  
@@ -116,11 +118,52 @@ p s = s.first if !s.nil? && s.length == 1
 p client.get_response "Destiny/#{s['membershipType']}/Account/#{s['membershipId']}" unless s.nil?
 ~~~~
 
-## TODO
+## One sample of Rails integration
 
-* Check README again;
-* Create specs;
-* Think about merging of BungieClient and BungieAuth;
+If you want to work with Rails you can create easy wrapper, such as:
+
+~~~~ ruby
+require 'bungie_client'
+
+class RailsBungieWrapper
+  class << self
+    def api_key=(value)
+      @api_key = value
+    end
+    def ttl=(value)
+      @ttl = value
+    end
+
+    def init
+      yield(self) if block_given?
+    end
+
+    def client
+      return @client unless @client.nil?
+
+      @client = BungieClient::Client.new(
+        :api_key => @api_key,
+        :cache => BungieClient::Cache.new(
+          :ttl    => @ttl,
+          :client => Rails.cache,
+          :get    => Proc.new { |c, key| c.read key },
+          :set    => Proc.new { |c, key, value, ttl| c.write key, value, expires_in: ttl }
+        )
+      )
+    end
+  end
+end
+~~~~
+
+After it, you should add your initializer to `config\initializers`:
+
+~~~~ruby
+RailsBungieWrapper.init do |config|
+  config.api_key = '1234'
+end
+~~~~
+
+In next operations the `RailsBungieWrapper.client` will be available for calls.
 
 ## Contributing
 
