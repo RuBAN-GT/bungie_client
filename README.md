@@ -29,7 +29,7 @@ The option `api_key` only necessary for this class and API. For getting API key,
 
 After it you can send your request to [Bungie Endpoint](http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints).
 
-The full information about classes and modules and their methods you can find in yard-comments and [rubydoc](www.rubydoc.info/gems/bungie_client).
+The full information about classes and modules and their methods you can find in yard-comments and [rubydoc](http://www.rubydoc.info/gems/bungie_client).
 
 ### BungieClient::Auth
 
