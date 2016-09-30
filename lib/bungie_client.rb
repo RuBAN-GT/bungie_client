@@ -1,3 +1,4 @@
+require "json"
 require "mechanize"
 
 require "bungie_client/version"
