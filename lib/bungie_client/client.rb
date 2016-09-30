@@ -117,21 +117,25 @@ class BungieClient::Client
   # @option options [Boolean] :cache_none - disable response caching
   # @option options [Boolean] :cache_rewrite - update cache value
   # @option options [Integer] :cache_ttl - special cache ttl
+  # @option options [Boolean] :cache_only - allow get result only from cache
   #
-  # @return [Array|Hash|nil]
+  # @return [Hash|nil]
   def get_response(uri, parameters = {}, options = {})
     if allow_get_cache options
       result = @cache.get "#{uri}+#{parameters}"
 
       return result unless result.nil?
     end
+    return nil if options[:cache_only]
 
     result = get uri, parameters
 
     if !result.nil? && result != ''
       result = JSON.parse result
 
-      if !result['Response'].nil? && !result['ErrorCode'].nil? && result['ErrorCode'] == 1
+      if result.is_a?(Hash) && !result['Response'].nil? && result['ErrorCode'] == 1
+        result = Hashie::Mash.new result
+
         @cache.set "#{uri}+#{parameters}", result['Response'], options[:cache_ttl] if allow_set_cache options
 
         result['Response']
@@ -147,6 +151,26 @@ class BungieClient::Client
   # @return [String|nil]
   def post(uri, query = {})
     @agent.post(self.class.request_uri(uri), query, headers).body rescue nil
+  end
+
+  # Get Response field after post request to bungie
+  #
+  # @param [String] uri
+  # @param [Hash] query for post
+  #
+  # @return [Hash|nil]
+  def post_response(uri, query = {})
+    result = post uri, query
+
+    if !result.nil? && result != ''
+      result = JSON.parse result
+
+      if result.is_a?(Hash) && !result['Response'].nil? && result['ErrorCode'] == 1
+        result = Hashie::Mash.new result
+
+        result['Response']
+      end
+    end
   end
 
   protected

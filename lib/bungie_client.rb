@@ -1,4 +1,5 @@
 require "json"
+require "hashie"
 require "mechanize"
 
 require "bungie_client/version"
