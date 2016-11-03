@@ -37,12 +37,16 @@ module BungieClient::Auth
     # @return [Mechanize::CookieJar|nil]
     def auth(username, password, type = 'psn')
       # client init
-      agent = Mechanize.new
+      agent = Mechanize.new do |config|
+        config.open_timeout = 60
+        config.read_timeout = 60
+        config.idle_timeout = 120
+      end
 
       # getting index page
       agent.get 'https://www.bungie.net/' do |page|
         result = nil
-        link = page.link_with :text => search_query(type)
+        link   = page.link_with :text => search_query(type)
 
         unless link.nil?
           # call auth page
@@ -65,7 +69,7 @@ module BungieClient::Auth
           else
             # ms wanted enabled js, but we can send form without it
             ppft = login.body.match(/name\="PPFT"(.*)value\="(.*?)"/)
-            url = login.body.match(/urlPost\:'(.*?)'/)
+            url  = login.body.match(/urlPost\:'(.*?)'/)
 
             if !ppft.nil? && !url.nil?
               result = agent.post url.to_a.last,

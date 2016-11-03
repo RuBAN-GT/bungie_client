@@ -19,21 +19,56 @@ Or install it yourself as:
 
 ## Usage
 
-For public requests you must initialize a client of api with `BungieClient::Client`.
+This gem contains two main classes: **BungieClient::Client**, **BungieClient::Wrappers::Default** and his inherits.
+
+### BungieClient::Client
+
+It's main class that makes possible to send any requests to Bungie and connects auth module in one client. It needs for public/private requests to Bungie API.
+
+**For this you should initialize your client for the next example:**
 
 ~~~~ruby
-client = BungieClient::Client.new :api_key => '1234'
+@client = BungieClient::Client.new(
+  :api_key => 'YOUR_API_KEY',
+  :username => 'test@test.test',
+  :password => '1234',
+  :type     => 'psn'
+)
 ~~~~
 
-The option `api_key` only necessary for this class and API. For getting API key, please visit the [bungie page](https://www.bungie.net/en/user/api).
+**or simply:**
 
-After it you can send your request to [Bungie Endpoint](http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints).
+~~~~ruby
+@client = BungieClient::Client.new :api_key => 'YOUR_API_KEY'
+~~~~
 
-The full information about classes and modules and their methods you can find in yard-comments and [rubydoc](http://www.rubydoc.info/gems/bungie_client).
+* The option `api_key` only necessary for this class and API. For getting API key, please visit the [bungie page](https://www.bungie.net/en/user/api).
+* After it you can send your request to [Bungie Endpoint](http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints).
+* The full information about classes and modules and their methods you can find in yard-comments and [rubydoc](http://www.rubydoc.info/gems/bungie_client).
+
+#### How it initialized:
+
+* Before working the client tries to authenticate in bungie, if you pass `username` and `password` option with account data, and after it uses cookies for next requests.
+* If you want to store your cookies in any place you can define they with `cookies` option without authentication.
+* After this operations your client is done for usage.
+
+> The authentication optional for client, it requires only `api_key` in your hash for initializer.
+
+#### Sending requests
+
+**Now you can send requests, e.g. for finding user information and getting his profile:**
+
+~~~~ruby
+@client.get_response "Destiny/SearchDestinyPlayer/2/RuBAN-GT"
+~~~~
+
+#### Note
+
+* For requests optimization you should use any caching of your requests.
 
 ### BungieClient::Auth
 
-This module has two methods: authentication in bungie.net by PSN or Xbox Live and checking this authentication with cookies that was returned early.
+This module has two methods: authentication in bungie.net by *PSN* or *Xbox Live* and checking this authentication with cookies that was returned early.
 
 **Example:**
 
@@ -45,125 +80,33 @@ jar = BungieClient::Auth.auth  'example@mail.com', 'example', 'psn'
 p BungieClient::Auth.auth_possible? (jar || [])
 ~~~~
 
-### BungieClient::Cache
+### BungieClient::Wrappers::Default
 
-It's class created for easy wrapping another cache clients, e.g. [Redis](https://github.com/redis/redis-rb).
+If you don't like long code as for me you should use **Wrappers**. It's classes can call api services with dynamically generated methods with snake case like name services. Also it can change url parameters to needed values and in inherits of this class it can be do automatically.
 
-**Examples of initialization:**
+The initialization of **Wrappers::Default** is similar to **Client**: all arguments of initializer will be passed to **Client** which is class variable of wrapper.
 
 ~~~~ruby
-require 'redis'
-
-BungieClient::Cache.new(
-  :ttl    => 900,
-  :client => Redis.new,
-  :get    => Proc.new { |c, key| c.get key },
-  :set    => Proc.new { |c, key, value, ttl| c.setex key, ttl, value }
-)
+@wrapper = BungieClient::Wrappers::Default.new :api_key => 'YOUR_API_KEY'
 ~~~~
 
-**For Rails wrapper:**
+Now you can sending your requests with beautiful and effective code:
 
 ~~~~ruby
-BungieClient::Cache.new(
-  :ttl    => @ttl,
-  :client => Rails.cache,
-  :get    => Proc.new { |c, key| c.read key },
-  :set    => Proc.new { |c, key, value, ttl| c.write key, value, expires_in: ttl }
-)
+@wrapper.search_destiny_player :membershipType => '2', :displayName => 'RuBAN-GT'
 ~~~~
 
-### BungieClient::Client
-
-It's main class that makes possible to send any requests to Bungie and connects cache wrapper and auth module in one client.
-
-**For this you should initialize your client for the next example:**
+If you need **more** you can define your own wrappers such as **Wrappers::User**:
 
 ~~~~ruby
-client = BungieClient::Client.new(
+@user = BungieClient::Wrappers::User.new(
   :api_key => 'YOUR_API_KEY',
-  :authentication => true,
-  :username => 'test@test.test',
-  :password => '1234',
-  :type     => 'psn',
-  :cache => BungieClient::Cache.new(
-    :ttl    => 900,
-    :client => Redis.new,
-    :get    => Proc.new { |c, key| c.get key },
-    :set    => Proc.new { |c, key, value, ttl| c.setex key, ttl, value }
-  )
+  :display_name => 'RuBAN-GT',
+  :membership_type => '2'
 )
+
+@user.search_destiny_player
 ~~~~
-
-#### How it initialized:
-
-* Before working the client tries to authenticate in bungie, if you pass `authentication` option with account data, and after it uses cookies for next requests.
-* If store your cookies in any place you can define they with `cookies` option without `authentication`.
-* For requests optimization you should use caching of your requests defined `BungieClient::Cache` in `cache` option.
-* After this operations your client is done for usage.
-
-> The authentication and caching are optional for client, it requires only `api_key` in your hash.
-
-#### Sending requests
-
-**Now you can send requests, e.g. for finding user information and getting his profile:**
-
-~~~~ruby
-# search account
-s = client.get_response "Destiny/SearchDestinyPlayer/2/RuBAN-GT"
-
-p s = s.first if !s.nil? && s.length == 1
-
-# get profile with characters
-p client.get_response "Destiny/#{s['membershipType']}/Account/#{s['membershipId']}" unless s.nil?
-~~~~
-
-## One sample of Rails integration
-
-If you want to work with Rails you can create easy wrapper, such as:
-
-~~~~ ruby
-require 'bungie_client'
-
-class RailsBungieWrapper
-  class << self
-    def api_key=(value)
-      @api_key = value
-    end
-    def ttl=(value)
-      @ttl = value
-    end
-
-    def init
-      yield(self) if block_given?
-    end
-
-    def client
-      return @client unless @client.nil?
-
-      @client = BungieClient::Client.new(
-        :api_key => @api_key,
-        :cache => BungieClient::Cache.new(
-          :ttl    => @ttl,
-          :client => Rails.cache,
-          :get    => Proc.new { |c, key| c.read key },
-          :set    => Proc.new { |c, key, value, ttl| c.write key, value, expires_in: ttl }
-        )
-      )
-    end
-  end
-end
-~~~~
-
-After it, you should add your initializer to `config\initializers`:
-
-~~~~ruby
-RailsBungieWrapper.init do |config|
-  config.api_key = '1234'
-end
-~~~~
-
-In next operations the `RailsBungieWrapper.client` will be available for calls.
 
 ## Contributing
 
@@ -176,3 +119,7 @@ The gem is available as open source under the terms of the [MIT License](http://
 ## Fireteam
 
 If you want to fight with Oryx with me or create any interesting applications for Destiny, you can add me ([https://www.bungie.net/en/Profile/254/12488384](https://www.bungie.net/en/Profile/254/12488384)).
+
+## Note
+
+* In the source code you can fine `services_parser.rb`. It's script created for getting full list of Bungie API services, for result it generates `services.yml` in lib.

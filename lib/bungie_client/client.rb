@@ -11,12 +11,30 @@ class BungieClient::Client
     "#{BUNGIE_URI}/#{uri.sub(/^\//, '').sub(/\/$/, '')}/"
   end
 
+  # Format answer from bungie
+  #
+  # @param [String] response
+  #
+  # @return [Hashie::Mash]
+  def self.parse_response(response)
+    if !response.nil? && response != ''
+      response = JSON.parse response
+
+      if response.is_a?(Hash) && !response['Response'].nil? && response['ErrorCode'] == 1
+        response = Hashie::Mash.new response
+
+        return response['Response']
+      end
+    end
+
+    Hashie::Mash.new
+  end
+
   attr_reader :api_key
   attr_reader :username
   attr_reader :password
   attr_reader :type
   attr_reader :agent
-  attr_reader :cache
 
   # Init client
   #
@@ -26,9 +44,7 @@ class BungieClient::Client
   #
   # @param [Hash] options
   # @option options [String] :api_key
-  # @option options [Array] :cookies with [HTTP::Cookie]
-  # @option options [BungieClient::Cache] :cache client for saving respones
-  # @option options [Boolean] :authentication makes authentication with next three field for getting cookies for private requests
+  # @option options [Array|CookieJar] :cookies with [HTTP::Cookie] or [CookieJar]
   # @option options [String] :username username for authentication, necessary if set :authenticate
   # @option options [String] :password password of user, necessary if set :authenticate
   # @option options [String] :type of account, it can be 'psn' or 'live'
@@ -42,59 +58,32 @@ class BungieClient::Client
       @api_key = options[:api_key].to_s
     end
 
-    # init @cache
-    unless options[:cache].nil?
-      if options[:cache].is_a? BungieClient::Cache
-        @cache = options[:cache]
-      else
-        raise 'Cache client must be inhereted from [BungieClient::Cache].'
-      end
-    end
-
     # init @agent
-    @agent = Mechanize.new
-
-    # make authentication
-    if options[:authentication]
-      @username = options[:username]  if options[:username].is_a? String
-      @password = options[:password]  if options[:password].is_a? String
-      @type     = options[:type].to_s if ['psn', 'live'].include? options[:type].to_s
-
-      cookies = BungieClient::Auth.auth @username, @password, (@type || 'psn')
-
-      if cookies.nil?
-        raise "Wrong authentication. Check your account data."
-      else
-        @agent.cookie_jar = cookies
-      end
+    @agent = Mechanize.new do |config|
+      config.read_timeout = 5
     end
 
     # merge cookies with options
     if BungieClient::Auth.valid_cookies? options[:cookies], true
-      cookies = (options[:cookies].is_a? Array) ? cookies : cookies.cookies
+      cookies = (options[:cookies].is_a? CookieJar) ? options[:cookies].cookies : options[:cookies]
 
       cookies.each do |cookie|
         @agent.cookie_jar.add cookie
       end
     end unless options[:cookies].nil?
-  end
 
-  # Check options for allowing getting of cache
-  #
-  # @param [Hash] options of cache
-  #
-  # @return [Boolean]
-  def allow_get_cache(options = {})
-    allow_set_cache(options) && options[:cache_rewrite] != true
-  end
+    # make authentication and save new cookies in client
+    unless options[:username].nil? || options[:password].nil?
+      jar = BungieClient::Auth.auth options[:username].to_s, options[:password].to_s, (options[:type].to_s || 'psn')
 
-  # Check options for allowing setting of cache
-  #
-  # @param [Hash] options of cache
-  #
-  # @return [Boolean]
-  def allow_set_cache(options = {})
-    !@cache.nil? && options[:cache_none] != true
+      if jar.nil?
+        raise "Wrong authentication. Check your account data."
+      else
+        jar.cookies.each do |cookie|
+          @agent.cookie_jar.add cookie
+        end
+      end
+    end
   end
 
   # Get response from bungie services
@@ -109,38 +98,14 @@ class BungieClient::Client
     @agent.get(self.class.request_uri(uri), parameters, nil, headers).body rescue nil
   end
 
-  # Get Response field after get request to bungie
+  # Get Response field after sending GET request to bungie
   #
   # @param [String] uri
   # @param [Hash|Array] parameters for http-query
-  # @param [Hash] options for cache such as:
-  # @option options [Boolean] :cache_none - disable response caching
-  # @option options [Boolean] :cache_rewrite - update cache value
-  # @option options [Integer] :cache_ttl - special cache ttl
-  # @option options [Boolean] :cache_only - allow get result only from cache
   #
-  # @return [Hash|nil]
-  def get_response(uri, parameters = {}, options = {})
-    if allow_get_cache options
-      result = @cache.get "#{uri}+#{parameters}"
-
-      return result unless result.nil?
-    end
-    return nil if options[:cache_only]
-
-    result = get uri, parameters
-
-    if !result.nil? && result != ''
-      result = JSON.parse result
-
-      if result.is_a?(Hash) && !result['Response'].nil? && result['ErrorCode'] == 1
-        result = Hashie::Mash.new result
-
-        @cache.set "#{uri}+#{parameters}", result['Response'], options[:cache_ttl] if allow_set_cache options
-
-        result['Response']
-      end
-    end
+  # @return [Hashie::Mash]
+  def get_response(uri, parameters = {})
+    self.class.parse_response get(uri, parameters)
   end
 
   # Post data to bungie services
@@ -158,19 +123,9 @@ class BungieClient::Client
   # @param [String] uri
   # @param [Hash] query for post
   #
-  # @return [Hash|nil]
+  # @return [Hashie::Mash]
   def post_response(uri, query = {})
-    result = post uri, query
-
-    if !result.nil? && result != ''
-      result = JSON.parse result
-
-      if result.is_a?(Hash) && !result['Response'].nil? && result['ErrorCode'] == 1
-        result = Hashie::Mash.new result
-
-        result['Response']
-      end
-    end
+    self.class.parse_response post(uri, query)
   end
 
   protected
