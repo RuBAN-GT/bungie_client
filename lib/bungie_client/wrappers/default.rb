@@ -48,7 +48,7 @@ module BungieClient::Wrappers
     # @return [String]
     def fill_url(url, params)
       params.each do |key, value|
-        url.gsub! "{#{key}}", value.to_s
+        url = url.gsub "{#{key}}", value.to_s
       end
 
       url
