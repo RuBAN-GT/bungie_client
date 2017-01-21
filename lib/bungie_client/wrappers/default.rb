@@ -49,7 +49,7 @@ module BungieClient::Wrappers
     def fill_url(url, params)
       params.each do |key, value|
         url = url.gsub "{#{key}}", value.to_s
-      end
+      end unless params.nil?
 
       url
     end
@@ -62,7 +62,7 @@ module BungieClient::Wrappers
     #
     # @return [Hashie::Mash]
     def call_service(service, params = {}, options = {})
-      # try to fine service
+      # try to find service
       service = self.class.services[service]
 
       raise NoMethodError if service.nil?
