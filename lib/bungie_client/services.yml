@@ -118,7 +118,7 @@ get_notification_settings:
 get_partnerships:
   :name: GetPartnerships
   :method: get
-  :endpoint: "/User/{param1}/Partnerships/"
+  :endpoint: "/User/{membershipId}/Partnerships/"
 get_platform_api_keys_for_user:
   :name: GetPlatformApiKeysForUser
   :method: get
@@ -1107,10 +1107,6 @@ verify_age:
   :name: VerifyAge
   :method: post
   :endpoint: "/Tokens/VerifyAge/"
-buy_item:
-  :name: BuyItem
-  :method: post
-  :endpoint: "/Destiny/BuyItem/"
 equip_item:
   :name: EquipItem
   :method: post
@@ -1335,10 +1331,6 @@ get_vendor_summaries_for_current_character:
   :name: GetVendorSummariesForCurrentCharacter
   :method: get
   :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendors/Summaries/"
-refund_item:
-  :name: RefundItem
-  :method: post
-  :endpoint: "/Destiny/{param1}/RefundItem/"
 search_destiny_player:
   :name: SearchDestinyPlayer
   :method: get
@@ -1374,7 +1366,7 @@ edit_content:
 get_admin_community_live_statuses:
   :name: GetAdminCommunityLiveStatuses
   :method: get
-  :endpoint: "/CommunityContent/Live/Admin/{param1}/{param2}/"
+  :endpoint: "/CommunityContent/Live/Admin/{param1}/{param2}/{param3}/"
 get_approval_queue:
   :name: GetApprovalQueue
   :method: get
@@ -1390,19 +1382,23 @@ get_community_featured_activity_modes:
 get_community_live_statuses:
   :name: GetCommunityLiveStatuses
   :method: get
-  :endpoint: "/CommunityContent/Live/All/{param1}/{param2}/{param3}/"
+  :endpoint: "/CommunityContent/Live/All/{partnershipType}/{communityStatusSort}/{page}/"
 get_community_live_statuses_for_clanmates:
   :name: GetCommunityLiveStatusesForClanmates
   :method: get
-  :endpoint: "/CommunityContent/Live/Clan/{param1}/{param2}/{param3}/"
+  :endpoint: "/CommunityContent/Live/Clan/{partnershipType}/{communityStatusSort}/{page}/"
 get_community_live_statuses_for_friends:
   :name: GetCommunityLiveStatusesForFriends
   :method: get
-  :endpoint: "/CommunityContent/Live/Friends/{param1}/{param2}/{param3}/"
+  :endpoint: "/CommunityContent/Live/Friends/{partnershipType}/{communityStatusSort}/{page}/"
 get_featured_community_live_statuses:
   :name: GetFeaturedCommunityLiveStatuses
   :method: get
-  :endpoint: "/CommunityContent/Live/Featured/{param1}/{param2}/{param3}/"
+  :endpoint: "/CommunityContent/Live/Featured/{partnershipType}/{communityStatusSort}/{page}/"
+get_streaming_status_for_member:
+  :name: GetStreamingStatusForMember
+  :method: get
+  :endpoint: "/CommunityContent/Live/Users/{partnershipType}/{membershipType}/{membershipId}/"
 submit_content:
   :name: SubmitContent
   :method: post

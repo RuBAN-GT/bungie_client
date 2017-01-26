@@ -18,7 +18,7 @@ class BungieClient::Client
   # @return [Hashie::Mash]
   def self.parse_response(response)
     if !response.nil? && response != ''
-      response = JSON.parse response
+      response = MultiJson.load response rescue return Hashie::Mash.new
 
       if response.is_a?(Hash) && !response['Response'].nil? && response['ErrorCode'] == 1
         response = Hashie::Mash.new response
@@ -45,9 +45,7 @@ class BungieClient::Client
   # @param [Hash] options
   # @option options [String] :api_key
   # @option options [Array|CookieJar] :cookies with [HTTP::Cookie] or [CookieJar]
-  # @option options [String] :username username for authentication, necessary if set :authenticate
-  # @option options [String] :password password of user, necessary if set :authenticate
-  # @option options [String] :type of account, it can be 'psn' or 'live'
+  # @option options [String] :token is authorization token from new oauth2
   def initialize(options)
     # checking options and @api_key
     raise 'Wrong options: It must be Hash.' unless options.is_a? Hash
@@ -58,30 +56,20 @@ class BungieClient::Client
       @api_key = options[:api_key].to_s
     end
 
+    # set token
+    @token = options[:token].to_s unless options[:token].nil?
+
     # init @agent
     @agent = Mechanize.new do |config|
       config.read_timeout = 5
     end
 
     # merge cookies with options
-    if BungieClient::Auth.valid_cookies? options[:cookies], true
+    unless options[:cookies].nil?
       cookies = (options[:cookies].is_a? CookieJar) ? options[:cookies].cookies : options[:cookies]
 
       cookies.each do |cookie|
         @agent.cookie_jar.add cookie
-      end
-    end unless options[:cookies].nil?
-
-    # make authentication and save new cookies in client
-    unless options[:username].nil? || options[:password].nil?
-      jar = BungieClient::Auth.auth options[:username].to_s, options[:password].to_s, (options[:type].to_s || 'psn')
-
-      if jar.nil?
-        raise "Wrong authentication. Check your account data."
-      else
-        jar.cookies.each do |cookie|
-          @agent.cookie_jar.add cookie
-        end
       end
     end
   end
@@ -132,10 +120,13 @@ class BungieClient::Client
 
     # Headers for requests
     def headers
-      {
+      headers = {
         'Accept' => 'json',
-        'Content-Type' => 'json',
+        'Content-Type' => 'application/json',
         'X-API-Key' => @api_key
       }
+      headers['Authorization'] = "Bearer #{@token}" unless @token.nil?
+
+      headers
     end
 end
