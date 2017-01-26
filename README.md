@@ -1,4 +1,5 @@
 [![Gem Version](https://badge.fury.io/rb/bungie_client.svg)](https://badge.fury.io/rb/bungie_client)
+[![Build Status](https://travis-ci.org/RuBAN-GT/bungie_client.svg?branch=master)](https://travis-ci.org/RuBAN-GT/bungie_client)
 
 # Bungie Client
 
