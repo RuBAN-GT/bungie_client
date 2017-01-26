@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dmitry Ruban"]
   spec.email         = ["dkruban@gmail.com"]
 
-  spec.summary       = "This gem makes possible to use Bungie API (and Destiny API too) with authentication if necessary."
-  spec.description   = "This gem makes possible to use Bungie API (and Destiny API too) with authentication if necessary. It can be useful, if you decide create your application for Destiny Game (https://www.bungie.net/en/pub/AboutDestiny)."
+  spec.summary       = "This gem makes possible to use Bungie API (and Destiny API too)."
+  spec.description   = "This gem makes possible to use Bungie API (and Destiny API too). It can be useful, if you decide create your application for Destiny Game (https://www.bungie.net/en/pub/AboutDestiny)."
   spec.homepage      = "https://github.com/RuBAN-GT/bungie_client"
   spec.license       = "MIT"
 

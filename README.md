@@ -3,7 +3,7 @@
 
 # Bungie Client
 
-This gem makes possible to use [Bungie API](http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints) (and Destiny API too) with authentication if necessary.  
+This gem makes possible to use [Bungie API](http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints) (and Destiny API too).  
 It can be useful, if you decide create your application for [Destiny Game](https://www.bungie.net/en/pub/AboutDestiny).
 
 ## Installation
@@ -24,16 +24,13 @@ This gem contains two main classes: **BungieClient::Client**, **BungieClient::Wr
 
 ### BungieClient::Client
 
-It's main class that makes possible to send any requests to Bungie and connects auth module in one client. It needs for public/private requests to Bungie API.
+It's main class that makes possible to send any requests to Bungie.
 
 **For this you should initialize your client for the next example:**
 
 ~~~~ruby
 @client = BungieClient::Client.new(
-  :api_key => 'YOUR_API_KEY',
-  :username => 'test@test.test',
-  :password => '1234',
-  :type     => 'psn'
+  :api_key => 'YOUR_API_KEY'
 )
 ~~~~
 
@@ -49,11 +46,9 @@ It's main class that makes possible to send any requests to Bungie and connects 
 
 #### How it initialized:
 
-* Before working the client tries to authenticate in bungie, if you pass `username` and `password` option with account data, and after it uses cookies for next requests.
 * If you want to store your cookies in any place you can define they with `cookies` option without authentication.
+* If you want to use private API, you must get [Authorization token](https://www.bungie.net/en/Help/Article/45481) from Bungie Oauth2 and set `token` option.
 * After this operations your client is done for usage.
-
-> The authentication optional for client, it requires only `api_key` in your hash for initializer.
 
 #### Sending requests
 
@@ -66,20 +61,6 @@ It's main class that makes possible to send any requests to Bungie and connects 
 #### Note
 
 * For requests optimization you should use any caching of your requests.
-
-### BungieClient::Auth
-
-This module has two methods: authentication in bungie.net by *PSN* or *Xbox Live* and checking this authentication with cookies that was returned early.
-
-**Example:**
-
-~~~~ ruby
-# Authenticate and get bungie cookies
-jar = BungieClient::Auth.auth  'example@mail.com', 'example', 'psn'
-
-# Check authentication
-p BungieClient::Auth.auth_possible? (jar || [])
-~~~~
 
 ### BungieClient::Wrappers::Default
 
