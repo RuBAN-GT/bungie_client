@@ -24,6 +24,9 @@ module BungieClient::Wrappers
       else
         raise 'You must set user display name'
       end
+
+      # set destinyMembershipId if needed
+      @destiny_membership_id = options[:destiny_membership_id] unless options[:destiny_membership_id].nil?
     end
 
     # Get DestinyMembershipId of selected user
