@@ -92,7 +92,3 @@ The gem is available as open source under the terms of the [MIT License](http://
 ## Fireteam
 
 If you want to fight with Oryx with me or create any interesting applications for Destiny, you can add me ([https://www.bungie.net/en/Profile/254/12488384](https://www.bungie.net/en/Profile/254/12488384)).
-
-## Note
-
-* In the source code you can fine `services_parser.rb`. It's script created for getting full list of Bungie API services, for result it generates `services.yml` in lib.
