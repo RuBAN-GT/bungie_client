@@ -1,17 +1,6 @@
 # Wrapper class for simple api requests
 module BungieClient::Wrappers
   class Default
-    # Get list of services
-    #
-    # @see http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints
-    #
-    # @return [Hash]
-    def self.services
-      return @services unless @services.nil?
-
-      @services = YAML.load_file "#{File.dirname(__FILE__)}/../services.yml" || {}
-    end
-
     # Initialize wrapper with client
     #
     # This initializer create wrapper object with client.
@@ -19,8 +8,9 @@ module BungieClient::Wrappers
     #
     # @see BungieClient::Client
     #
-    # @param [Hash] options
-    def initialize(options)
+    # @param [BungieClient::Client] client initialized for wrapper
+    # @param [Hash] options for initialization of client
+    def initialize(options = {})
       if options[:client].nil?
         @options = options
       elsif options[:client].is_a? BungieClient::Client
@@ -34,10 +24,7 @@ module BungieClient::Wrappers
     def client
       return @client unless @client.nil?
 
-      @client  = BungieClient::Client.new @options
-      @options = nil
-
-      @client
+      @client = BungieClient::Client.new @options
     end
 
     # Change all url parameters to hash value
@@ -49,7 +36,7 @@ module BungieClient::Wrappers
     def fill_url(url, params)
       params.each do |key, value|
         url = url.gsub "{#{key}}", value.to_s
-      end unless params.nil?
+      end
 
       url
     end
@@ -62,19 +49,13 @@ module BungieClient::Wrappers
     #
     # @return [Hashie::Mash]
     def call_service(service, params = {}, options = {})
-      # try to find service
-      service = self.class.services[service]
-
-      raise NoMethodError if service.nil?
-
-      # init service
-      service = BungieClient::Service.new service
+      service = BungieClient::Service.new service rescue raise NoMethodError
 
       # change url
       url = self.fill_url service.endpoint, params
 
       # send request
-      client.send "#{service.method_type}_response", url, options
+      client.send service.type, url, options
     end
 
     def method_missing(*args)

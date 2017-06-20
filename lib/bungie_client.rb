@@ -1,6 +1,7 @@
 require "multi_json"
 require "hashie"
-require "mechanize"
+require "faraday"
+require "faraday_middleware"
 
 require "bungie_client/version"
 require "bungie_client/client"

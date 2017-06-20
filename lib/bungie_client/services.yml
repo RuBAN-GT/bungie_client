@@ -2,1424 +2,1452 @@
 get_current_user:
   :name: GetCurrentUser
   :method: get
-  :endpoint: "/JSONP/GetBungieNetUser/"
+  :endpoint: JSONP/GetBungieNetUser/
 application_search:
   :name: ApplicationSearch
   :method: post
-  :endpoint: "/App/Search/"
+  :endpoint: App/Search/
 change_api_key_status:
   :name: ChangeApiKeyStatus
   :method: post
-  :endpoint: "/App/ChangeApiKeyState/{param1}/{param2}/"
+  :endpoint: App/ChangeApiKeyState/{param1}/{param2}/
 create_api_key:
   :name: CreateApiKey
   :method: post
-  :endpoint: "/App/CreateApiKey/{param1}/"
+  :endpoint: App/CreateApiKey/{param1}/
 create_application:
   :name: CreateApplication
   :method: post
-  :endpoint: "/App/CreateApplication/"
+  :endpoint: App/CreateApplication/
 edit_application:
   :name: EditApplication
   :method: post
-  :endpoint: "/App/EditApplication/{param1}/"
+  :endpoint: App/EditApplication/{param1}/
 get_access_tokens_from_code:
   :name: GetAccessTokensFromCode
   :method: post
-  :endpoint: "/App/GetAccessTokensFromCode/"
+  :endpoint: App/GetAccessTokensFromCode/
 get_access_tokens_from_refresh_token:
   :name: GetAccessTokensFromRefreshToken
   :method: post
-  :endpoint: "/App/GetAccessTokensFromRefreshToken/"
+  :endpoint: App/GetAccessTokensFromRefreshToken/
 get_application:
   :name: GetApplication
   :method: get
-  :endpoint: "/App/Application/{param1}/"
+  :endpoint: App/Application/{param1}/
 get_application_api_keys:
   :name: GetApplicationApiKeys
   :method: get
-  :endpoint: "/App/ApplicationApiKeys/{param1}/"
+  :endpoint: App/ApplicationApiKeys/{param1}/
 get_authorization_for_user_and_application:
   :name: GetAuthorizationForUserAndApplication
   :method: get
-  :endpoint: "/App/Authorization/{param1}/{param2}/"
+  :endpoint: App/Authorization/{param1}/{param2}/
 get_authorizations:
   :name: GetAuthorizations
   :method: get
-  :endpoint: "/App/Authorizations/{param1}/"
+  :endpoint: App/Authorizations/{param1}/
+get_o_auth_tokens:
+  :name: GetOAuthTokens
+  :method: post
+  :endpoint: App/oauth/token/
 private_application_search:
   :name: PrivateApplicationSearch
   :method: post
-  :endpoint: "/App/PrivateSearch/"
+  :endpoint: App/PrivateSearch/
 revoke_authorization:
   :name: RevokeAuthorization
   :method: post
-  :endpoint: "/App/RevokeAuthorization/{param1}/{param2}/"
+  :endpoint: App/RevokeAuthorization/{param1}/{param2}/
 create_user:
   :name: CreateUser
   :method: post
-  :endpoint: "/User/CreateUser/"
+  :endpoint: User/CreateUser/
 edit_success_message_flags:
   :name: EditSuccessMessageFlags
   :method: post
-  :endpoint: "/User/MessageFlags/Success/Update/{param1}/"
+  :endpoint: User/MessageFlags/Success/Update/{param1}/
 get_available_avatars:
   :name: GetAvailableAvatars
   :method: get
-  :endpoint: "/User/GetAvailableAvatars/"
+  :endpoint: User/GetAvailableAvatars/
 get_available_avatars_admin:
   :name: GetAvailableAvatarsAdmin
   :method: get
-  :endpoint: "/User/GetAvailableAvatarsAdmin/{param1}/"
+  :endpoint: User/GetAvailableAvatarsAdmin/{param1}/
 get_available_themes:
   :name: GetAvailableThemes
   :method: get
-  :endpoint: "/User/GetAvailableThemes/"
+  :endpoint: User/GetAvailableThemes/
 get_bungie_account:
   :name: GetBungieAccount
   :method: get
-  :endpoint: "/User/GetBungieAccount/{membershipId}/{membershipType}/"
+  :endpoint: User/GetBungieAccount/{membershipId}/{membershipType}/
 get_bungie_net_user_by_id:
   :name: GetBungieNetUserById
   :method: get
-  :endpoint: "/User/GetBungieNetUserById/{membershipId}/"
+  :endpoint: User/GetBungieNetUserById/{membershipId}/
 get_counts_for_current_user:
   :name: GetCountsForCurrentUser
   :method: get
-  :endpoint: "/User/GetCounts/"
+  :endpoint: User/GetCounts/
 get_credential_types_for_account:
   :name: GetCredentialTypesForAccount
   :method: get
-  :endpoint: "/User/GetCredentialTypesForAccount/"
+  :endpoint: User/GetCredentialTypesForAccount/
 get_current_bungie_account:
   :name: GetCurrentBungieAccount
   :method: get
-  :endpoint: "/User/GetCurrentBungieAccount/"
+  :endpoint: User/GetCurrentBungieAccount/
 get_current_bungie_net_user:
   :name: GetCurrentBungieNetUser
   :method: get
-  :endpoint: "/User/GetCurrentBungieNetUser/"
+  :endpoint: User/GetCurrentBungieNetUser/
 get_current_user_(user):
   :name: GetCurrentUser (User)
   :method: get
-  :endpoint: "/User/GetBungieNetUser/"
+  :endpoint: User/GetBungieNetUser/
+get_membership_data_by_id:
+  :name: GetMembershipDataById
+  :method: get
+  :endpoint: User/GetMembershipsById/{membershipId}/{membershipType}/
+get_membership_data_for_current_user:
+  :name: GetMembershipDataForCurrentUser
+  :method: get
+  :endpoint: User/GetMembershipsForCurrentUser/
 get_mobile_app_pairings:
   :name: GetMobileAppPairings
   :method: get
-  :endpoint: "/User/GetMobileAppPairings/"
+  :endpoint: User/GetMobileAppPairings/
 get_mobile_app_pairings_uncached:
   :name: GetMobileAppPairingsUncached
   :method: get
-  :endpoint: "/User/GetMobileAppPairingsUncached/"
+  :endpoint: User/GetMobileAppPairingsUncached/
 get_notification_settings:
   :name: GetNotificationSettings
   :method: get
-  :endpoint: "/User/GetNotificationSettings/"
+  :endpoint: User/GetNotificationSettings/
 get_partnerships:
   :name: GetPartnerships
   :method: get
-  :endpoint: "/User/{membershipId}/Partnerships/"
+  :endpoint: User/{membershipId}/Partnerships/
 get_platform_api_keys_for_user:
   :name: GetPlatformApiKeysForUser
   :method: get
-  :endpoint: "/User/GetPlatformApiKeysForUser/"
+  :endpoint: User/GetPlatformApiKeysForUser/
 get_sign_out_url:
   :name: GetSignOutUrl
   :method: get
-  :endpoint: "/User/GetSignOutUrl/"
+  :endpoint: User/GetSignOutUrl/
 get_user_aliases:
   :name: GetUserAliases
   :method: get
-  :endpoint: "/User/GetUserAliases/{membershipId}/"
+  :endpoint: User/GetUserAliases/{membershipId}/
 get_user_membership_ids:
   :name: GetUserMembershipIds
   :method: get
-  :endpoint: "/User/GetMembershipIds/"
+  :endpoint: User/GetMembershipIds/
 link_override:
   :name: LinkOverride
   :method: post
-  :endpoint: "/User/LinkOverride/"
+  :endpoint: User/LinkOverride/
 register_mobile_app_pair:
   :name: RegisterMobileAppPair
   :method: post
-  :endpoint: "/User/RegisterMobileAppPair/"
+  :endpoint: User/RegisterMobileAppPair/
 remove_partnership:
   :name: RemovePartnership
   :method: post
-  :endpoint: "/User/Partnerships/{param1}/Remove/"
+  :endpoint: User/Partnerships/{param1}/Remove/
 search_users:
   :name: SearchUsers
   :method: get
-  :endpoint: "/User/SearchUsers/"
+  :endpoint: User/SearchUsers/
 search_users_paged:
   :name: SearchUsersPaged
   :method: get
-  :endpoint: "/User/SearchUsersPaged/{searchTerm}/{page}/"
+  :endpoint: User/SearchUsersPaged/{searchTerm}/{page}/
 search_users_paged_v2:
   :name: SearchUsersPagedV2
   :method: get
-  :endpoint: "/User/SearchUsersPaged/{searchTerm}/{page}/{param3}/"
+  :endpoint: User/SearchUsersPaged/{searchTerm}/{page}/{param3}/
 set_acknowledged:
   :name: SetAcknowledged
   :method: post
-  :endpoint: "/User/Acknowledged/{ackId}/"
+  :endpoint: User/Acknowledged/{ackId}/
 unregister_mobile_app_pair:
   :name: UnregisterMobileAppPair
   :method: post
-  :endpoint: "/User/UnregisterMobileAppPair/{param1}/"
+  :endpoint: User/UnregisterMobileAppPair/{param1}/
 update_destiny_emblem_avatar:
   :name: UpdateDestinyEmblemAvatar
   :method: post
-  :endpoint: "/User/UpdateDestinyEmblemAvatar/"
+  :endpoint: User/UpdateDestinyEmblemAvatar/
 update_notification_setting:
   :name: UpdateNotificationSetting
   :method: post
-  :endpoint: "/User/Notification/Update/"
+  :endpoint: User/Notification/Update/
 update_state_info_for_mobile_app_pair:
   :name: UpdateStateInfoForMobileAppPair
   :method: post
-  :endpoint: "/User/UpdateStateInfoForMobileAppPair/"
+  :endpoint: User/UpdateStateInfoForMobileAppPair/
 update_user:
   :name: UpdateUser
   :method: post
-  :endpoint: "/User/UpdateUser/"
+  :endpoint: User/UpdateUser/
 update_user_admin:
   :name: UpdateUserAdmin
   :method: post
-  :endpoint: "/User/UpdateUserAdmin/{param1}/"
+  :endpoint: User/UpdateUserAdmin/{param1}/
 create_conversation:
   :name: CreateConversation
   :method: post
-  :endpoint: "/Message/CreateConversation/"
+  :endpoint: Message/CreateConversation/
 create_conversation_v2:
   :name: CreateConversationV2
   :method: post
-  :endpoint: "/Message/CreateConversationV2/"
+  :endpoint: Message/CreateConversationV2/
 get_alliance_invited_to_join_invitations:
   :name: GetAllianceInvitedToJoinInvitations
   :method: get
-  :endpoint: "/Message/AllianceInvitations/InvitationsToJoinAnotherGroup/{param1}/{param2}/"
+  :endpoint: Message/AllianceInvitations/InvitationsToJoinAnotherGroup/{param1}/{param2}/
 get_alliance_join_invitations:
   :name: GetAllianceJoinInvitations
   :method: get
-  :endpoint: "/Message/AllianceInvitations/RequestsToJoinYourGroup/{param1}/{param2}/"
+  :endpoint: Message/AllianceInvitations/RequestsToJoinYourGroup/{param1}/{param2}/
 get_conversation_by_id:
   :name: GetConversationById
   :method: get
-  :endpoint: "/Message/GetConversationById/{conversationId}/"
+  :endpoint: Message/GetConversationById/{conversationId}/
 get_conversation_by_id_v2:
   :name: GetConversationByIdV2
   :method: get
-  :endpoint: "/Message/GetConversationByIdV2/{param1}/"
+  :endpoint: Message/GetConversationByIdV2/{param1}/
 get_conversations_v2:
   :name: GetConversationsV2
   :method: get
-  :endpoint: "/Message/GetConversationsV2/{param1}/{param2}/"
+  :endpoint: Message/GetConversationsV2/{param1}/{param2}/
 get_conversations_v3:
   :name: GetConversationsV3
   :method: get
-  :endpoint: "/Message/GetConversationsV3/{param1}/{param2}/"
+  :endpoint: Message/GetConversationsV3/{param1}/{param2}/
 get_conversations_v4:
   :name: GetConversationsV4
   :method: get
-  :endpoint: "/Message/GetConversationsV4/{param1}/"
+  :endpoint: Message/GetConversationsV4/{param1}/
 get_conversations_v5:
   :name: GetConversationsV5
   :method: get
-  :endpoint: "/Message/GetConversationsV5/{currentPage}/"
+  :endpoint: Message/GetConversationsV5/{currentPage}/
 get_conversation_thread_v2:
   :name: GetConversationThreadV2
   :method: get
-  :endpoint: "/Message/GetConversationThreadV2/{param1}/{param2}/{param3}/"
+  :endpoint: Message/GetConversationThreadV2/{param1}/{param2}/{param3}/
 get_conversation_thread_v3:
   :name: GetConversationThreadV3
   :method: get
-  :endpoint: "/Message/GetConversationThreadV3/{param1}/{param2}/"
+  :endpoint: Message/GetConversationThreadV3/{param1}/{param2}/
 get_conversation_with_member_id:
   :name: GetConversationWithMemberId
   :method: get
-  :endpoint: "/Message/GetConversationWithMember/{memberId}/"
+  :endpoint: Message/GetConversationWithMember/{memberId}/
 get_conversation_with_member_id_v2:
   :name: GetConversationWithMemberIdV2
   :method: get
-  :endpoint: "/Message/GetConversationWithMemberV2/{param1}/"
+  :endpoint: Message/GetConversationWithMemberV2/{param1}/
 get_group_conversations:
   :name: GetGroupConversations
   :method: get
-  :endpoint: "/Message/GetGroupConversations/{param1}/"
+  :endpoint: Message/GetGroupConversations/{param1}/
 get_invitation_details:
   :name: GetInvitationDetails
   :method: get
-  :endpoint: "/Message/Invitations/{param1}/Details/"
+  :endpoint: Message/Invitations/{param1}/Details/
 get_total_conversation_count:
   :name: GetTotalConversationCount
   :method: get
-  :endpoint: "/Message/GetTotalConversationCount/"
+  :endpoint: Message/GetTotalConversationCount/
 get_unread_conversation_count_v2:
   :name: GetUnreadConversationCountV2
   :method: get
-  :endpoint: "/Message/GetUnreadPrivateConversationCount/"
+  :endpoint: Message/GetUnreadPrivateConversationCount/
 get_unread_conversation_count_v3:
   :name: GetUnreadConversationCountV3
   :method: get
-  :endpoint: "/Message/GetUnreadConversationCountV3/"
+  :endpoint: Message/GetUnreadConversationCountV3/
 get_unread_conversation_count_v4:
   :name: GetUnreadConversationCountV4
   :method: get
-  :endpoint: "/Message/GetUnreadConversationCountV4/"
+  :endpoint: Message/GetUnreadConversationCountV4/
 get_unread_group_conversation_count:
   :name: GetUnreadGroupConversationCount
   :method: get
-  :endpoint: "/Message/GetUnreadGroupConversationCount/"
+  :endpoint: Message/GetUnreadGroupConversationCount/
 leave_conversation:
   :name: LeaveConversation
   :method: get
-  :endpoint: "/Message/LeaveConversation/{param1}/"
+  :endpoint: Message/LeaveConversation/{param1}/
 moderate_group_wall:
   :name: ModerateGroupWall
   :method: post
-  :endpoint: "/Message/ModerateGroupWall/{param1}/{param2}/"
+  :endpoint: Message/ModerateGroupWall/{param1}/{param2}/
 review_all_invitations:
   :name: ReviewAllInvitations
   :method: post
-  :endpoint: "/Message/Invitations/ReviewAllDirect/{param1}/{param2}/"
+  :endpoint: Message/Invitations/ReviewAllDirect/{param1}/{param2}/
 review_invitation:
   :name: ReviewInvitation
   :method: post
-  :endpoint: "/Message/Invitations/{param1}/{param2}/{param3}/"
+  :endpoint: Message/Invitations/{param1}/{param2}/{param3}/
 review_invitation_direct:
   :name: ReviewInvitationDirect
   :method: post
-  :endpoint: "/Message/Invitations/ReviewDirect/{invitationId}/{invitationResponseState}/"
+  :endpoint: Message/Invitations/ReviewDirect/{invitationId}/{invitationResponseState}/
 review_invitations:
   :name: ReviewInvitations
   :method: post
-  :endpoint: "/Message/Invitations/ReviewListDirect/{param1}/"
+  :endpoint: Message/Invitations/ReviewListDirect/{param1}/
 save_message_v2:
   :name: SaveMessageV2
   :method: post
-  :endpoint: "/Message/SaveMessageV2/"
+  :endpoint: Message/SaveMessageV2/
 save_message_v3:
   :name: SaveMessageV3
   :method: post
-  :endpoint: "/Message/SaveMessageV3/"
+  :endpoint: Message/SaveMessageV3/
 save_message_v4:
   :name: SaveMessageV4
   :method: post
-  :endpoint: "/Message/SaveMessageV4/"
+  :endpoint: Message/SaveMessageV4/
 update_conversation_last_viewed_timestamp:
   :name: UpdateConversationLastViewedTimestamp
   :method: post
-  :endpoint: "/Message/Conversations/UpdateLastViewedTimestamp/"
+  :endpoint: Message/Conversations/UpdateLastViewedTimestamp/
 user_is_typing:
   :name: UserIsTyping
   :method: post
-  :endpoint: "/Message/UserIsTyping/"
+  :endpoint: Message/UserIsTyping/
 get_real_time_events:
   :name: GetRealTimeEvents
   :method: get
-  :endpoint: "/Notification/Events/{param1}/{param2}/"
+  :endpoint: Notification/Events/{param1}/{param2}/
 get_recent_notification_count:
   :name: GetRecentNotificationCount
   :method: get
-  :endpoint: "/Notification/GetCount/"
+  :endpoint: Notification/GetCount/
 get_recent_notifications:
   :name: GetRecentNotifications
   :method: get
-  :endpoint: "/Notification/GetRecent/"
+  :endpoint: Notification/GetRecent/
 reset_notification:
   :name: ResetNotification
   :method: get
-  :endpoint: "/Notification/Reset/"
+  :endpoint: Notification/Reset/
 get_career:
   :name: GetCareer
   :method: get
-  :endpoint: "/Content/Careers/{param1}/"
+  :endpoint: Content/Careers/{param1}/
 get_careers:
   :name: GetCareers
   :method: get
-  :endpoint: "/Content/Careers/"
+  :endpoint: Content/Careers/
 get_content_by_id:
   :name: GetContentById
   :method: get
-  :endpoint: "/Content/GetContentById/{param1}/{param2}/"
+  :endpoint: Content/GetContentById/{param1}/{param2}/
 get_content_by_tag_and_type:
   :name: GetContentByTagAndType
   :method: get
-  :endpoint: "/Content/GetContentByTagAndType/{param1}/{param2}/{param3}/"
+  :endpoint: Content/GetContentByTagAndType/{param1}/{param2}/{param3}/
 get_content_type:
   :name: GetContentType
   :method: get
-  :endpoint: "/Content/GetContentType/{param1}/"
+  :endpoint: Content/GetContentType/{param1}/
 get_destiny_content:
   :name: GetDestinyContent
   :method: get
-  :endpoint: "/Content/Site/Destiny/{param1}/"
+  :endpoint: Content/Site/Destiny/{param1}/
 get_destiny_content_v2:
   :name: GetDestinyContentV2
   :method: get
-  :endpoint: "/Content/Site/Destiny/V2/{param1}/"
+  :endpoint: Content/Site/Destiny/V2/{param1}/
 get_featured_article:
   :name: GetFeaturedArticle
   :method: get
-  :endpoint: "/Content/Site/Featured/"
+  :endpoint: Content/Site/Featured/
 get_homepage_content:
   :name: GetHomepageContent
   :method: get
-  :endpoint: "/Content/Site/Homepage/{param1}/"
+  :endpoint: Content/Site/Homepage/{param1}/
 get_homepage_content_v2:
   :name: GetHomepageContentV2
   :method: get
-  :endpoint: "/Content/Site/Homepage/V2/"
+  :endpoint: Content/Site/Homepage/V2/
 get_jobs:
   :name: GetJobs
   :method: get
-  :endpoint: "/Content/Site/Jobs/{param1}/"
+  :endpoint: Content/Site/Jobs/{param1}/
 get_news:
   :name: GetNews
   :method: get
-  :endpoint: "/Content/Site/News/{param1}/{param2}/"
+  :endpoint: Content/Site/News/{param1}/{param2}/
 get_promo_widget:
   :name: GetPromoWidget
   :method: get
-  :endpoint: "/Content/Site/Destiny/Promo/"
+  :endpoint: Content/Site/Destiny/Promo/
 get_publications:
   :name: GetPublications
   :method: get
-  :endpoint: "/Content/Site/Publications/{param1}/"
+  :endpoint: Content/Site/Publications/{param1}/
 search_careers:
   :name: SearchCareers
   :method: get
-  :endpoint: "/Content/Careers/Search/"
+  :endpoint: Content/Careers/Search/
 search_content_by_tag_and_type:
   :name: SearchContentByTagAndType
   :method: get
-  :endpoint: "/Content/SearchContentByTagAndType/{param1}/{param2}/{param3}/"
+  :endpoint: Content/SearchContentByTagAndType/{param1}/{param2}/{param3}/
 search_content_ex:
   :name: SearchContentEx
   :method: post
-  :endpoint: "/Content/SearchEx/{param1}/"
+  :endpoint: Content/SearchEx/{param1}/
 search_content_with_text:
   :name: SearchContentWithText
   :method: get
-  :endpoint: "/Content/Search/{param1}/"
+  :endpoint: Content/Search/{param1}/
 get_aggregated_social_feed:
   :name: GetAggregatedSocialFeed
   :method: get
-  :endpoint: "/ExternalSocial/GetAggregatedSocialFeed/{param1}/"
+  :endpoint: ExternalSocial/GetAggregatedSocialFeed/{param1}/
 get_survey:
   :name: GetSurvey
   :method: get
-  :endpoint: "/Survey/GetSurvey/"
+  :endpoint: Survey/GetSurvey/
 approve_fireteam_thread:
   :name: ApproveFireteamThread
   :method: post
-  :endpoint: "/Forum/Recruit/Approve/{param1}/"
+  :endpoint: Forum/Recruit/Approve/{param1}/
 change_lock_state:
   :name: ChangeLockState
   :method: post
-  :endpoint: "/Forum/ChangeLockState/{param1}/{param2}/"
+  :endpoint: Forum/ChangeLockState/{param1}/{param2}/
 change_pin_state:
   :name: ChangePinState
   :method: post
-  :endpoint: "/Forum/ChangePinState/{param1}/{param2}/"
+  :endpoint: Forum/ChangePinState/{param1}/{param2}/
 create_content_comment:
   :name: CreateContentComment
   :method: post
-  :endpoint: "/Forum/CreateContentComment/"
+  :endpoint: Forum/CreateContentComment/
 create_post:
   :name: CreatePost
   :method: post
-  :endpoint: "/Forum/CreatePost/"
+  :endpoint: Forum/CreatePost/
 delete_post:
   :name: DeletePost
   :method: post
-  :endpoint: "/Forum/DeletePost/{param1}/"
+  :endpoint: Forum/DeletePost/{param1}/
 edit_post:
   :name: EditPost
   :method: post
-  :endpoint: "/Forum/EditPost/{param1}/"
+  :endpoint: Forum/EditPost/{param1}/
 get_core_topics_paged:
   :name: GetCoreTopicsPaged
   :method: get
-  :endpoint: "/Forum/GetCoreTopicsPaged/{param1}/{param2}/{param3}/{param4}/"
+  :endpoint: Forum/GetCoreTopicsPaged/{param1}/{param2}/{param3}/{param4}/
 get_forum_tag_count_estimate:
   :name: GetForumTagCountEstimate
   :method: get
-  :endpoint: "/Forum/GetForumTagCountEstimate/{param1}/"
+  :endpoint: Forum/GetForumTagCountEstimate/{param1}/
 get_forum_tag_suggestions:
   :name: GetForumTagSuggestions
   :method: get
-  :endpoint: "/Forum/GetForumTagSuggestions/"
+  :endpoint: Forum/GetForumTagSuggestions/
 get_poll:
   :name: GetPoll
   :method: get
-  :endpoint: "/Forum/Poll/{param1}/"
+  :endpoint: Forum/Poll/{param1}/
 get_popular_tags:
   :name: GetPopularTags
   :method: get
-  :endpoint: "/Forum/GetPopularTags/"
+  :endpoint: Forum/GetPopularTags/
 get_post_and_parent:
   :name: GetPostAndParent
   :method: get
-  :endpoint: "/Forum/GetPostAndParent/{childPostId}/"
+  :endpoint: Forum/GetPostAndParent/{childPostId}/
 get_post_and_parent_awaiting_approval:
   :name: GetPostAndParentAwaitingApproval
   :method: get
-  :endpoint: "/Forum/GetPostAndParentAwaitingApproval/{childPostId}/"
+  :endpoint: Forum/GetPostAndParentAwaitingApproval/{childPostId}/
 get_posts_threaded_paged:
   :name: GetPostsThreadedPaged
   :method: get
-  :endpoint: "/Forum/GetPostsThreadedPaged/{parentPostId}/{page}/{pageSize}/{replySize}/{getParentPost}/{rootThreadMode}/{sortMode}/"
+  :endpoint: Forum/GetPostsThreadedPaged/{parentPostId}/{page}/{pageSize}/{replySize}/{getParentPost}/{rootThreadMode}/{sortMode}/
 get_posts_threaded_paged_from_child:
   :name: GetPostsThreadedPagedFromChild
   :method: get
-  :endpoint: "/Forum/GetPostsThreadedPagedFromChild/{childPostId}/{page}/{pageSize}/{replySize}/{rootThreadMode}/{sortMode}/"
+  :endpoint: Forum/GetPostsThreadedPagedFromChild/{childPostId}/{page}/{pageSize}/{replySize}/{rootThreadMode}/{sortMode}/
 get_recruitment_thread_summaries:
   :name: GetRecruitmentThreadSummaries
   :method: post
-  :endpoint: "/Forum/Recruit/Summaries/"
+  :endpoint: Forum/Recruit/Summaries/
 get_topic_for_content:
   :name: GetTopicForContent
   :method: get
-  :endpoint: "/Forum/GetTopicForContent/{contentId}/"
+  :endpoint: Forum/GetTopicForContent/{contentId}/
 get_topics_paged:
   :name: GetTopicsPaged
   :method: get
-  :endpoint: "/Forum/GetTopicsPaged/{page}/{pageSize}/{group}/{sort}/{quickDate}/{categoryFilter}/"
+  :endpoint: Forum/GetTopicsPaged/{page}/{pageSize}/{group}/{sort}/{quickDate}/{categoryFilter}/
 join_fireteam_thread:
   :name: JoinFireteamThread
   :method: post
-  :endpoint: "/Forum/Recruit/Join/{param1}/"
+  :endpoint: Forum/Recruit/Join/{param1}/
 kick_ban_fireteam_applicant:
   :name: KickBanFireteamApplicant
   :method: post
-  :endpoint: "/Forum/Recruit/KickBan/{param1}/{param2}/"
+  :endpoint: Forum/Recruit/KickBan/{param1}/{param2}/
 leave_fireteam_thread:
   :name: LeaveFireteamThread
   :method: post
-  :endpoint: "/Forum/Recruit/Leave/{param1}/"
+  :endpoint: Forum/Recruit/Leave/{param1}/
 mark_reply_as_answer:
   :name: MarkReplyAsAnswer
   :method: post
-  :endpoint: "/Forum/MarkReplyAsAnswer/{param1}/{param2}/"
+  :endpoint: Forum/MarkReplyAsAnswer/{param1}/{param2}/
 moderate_group_post:
   :name: ModerateGroupPost
   :method: post
-  :endpoint: "/Forum/Post/{param1}/GroupModerate/"
+  :endpoint: Forum/Post/{param1}/GroupModerate/
 moderate_post:
   :name: ModeratePost
   :method: post
-  :endpoint: "/Forum/Post/{param1}/Moderate/"
+  :endpoint: Forum/Post/{param1}/Moderate/
 moderate_tag:
   :name: ModerateTag
   :method: post
-  :endpoint: "/Forum/Tags/{param1}/Moderate/"
+  :endpoint: Forum/Tags/{param1}/Moderate/
 poll_vote:
   :name: PollVote
   :method: post
-  :endpoint: "/Forum/Poll/Vote/{param1}/{param2}/"
+  :endpoint: Forum/Poll/Vote/{param1}/{param2}/
 rate_post:
   :name: RatePost
   :method: post
-  :endpoint: "/Forum/RatePost/{param1}/{param2}/"
+  :endpoint: Forum/RatePost/{param1}/{param2}/
 unmark_reply_as_answer:
   :name: UnmarkReplyAsAnswer
   :method: post
-  :endpoint: "/Forum/UnmarkReplyAsAnswer/{param1}/"
+  :endpoint: Forum/UnmarkReplyAsAnswer/{param1}/
 follow_tag:
   :name: FollowTag
   :method: post
-  :endpoint: "/Activity/Tag/Follow/"
+  :endpoint: Activity/Tag/Follow/
 follow_user:
   :name: FollowUser
   :method: post
-  :endpoint: "/Activity/User/{param1}/Follow/"
+  :endpoint: Activity/User/{param1}/Follow/
 get_application_activity_for_user:
   :name: GetApplicationActivityForUser
   :method: get
-  :endpoint: "/Activity/User/{param1}/Activities/Application/{param2}/"
+  :endpoint: Activity/User/{param1}/Activities/Application/{param2}/
 get_entities_followed_by_current_user:
   :name: GetEntitiesFollowedByCurrentUser
   :method: get
-  :endpoint: "/Activity/Following/"
+  :endpoint: Activity/Following/
 get_entities_followed_by_current_user_v2:
   :name: GetEntitiesFollowedByCurrentUserV2
   :method: get
-  :endpoint: "/Activity/Following/V2/{param1}/{param2}/"
+  :endpoint: Activity/Following/V2/{param1}/{param2}/
 get_entities_followed_by_user:
   :name: GetEntitiesFollowedByUser
   :method: get
-  :endpoint: "/Activity/User/{param1}/Following/"
+  :endpoint: Activity/User/{param1}/Following/
 get_entities_followed_by_user_v2:
   :name: GetEntitiesFollowedByUserV2
   :method: get
-  :endpoint: "/Activity/User/{param1}/Following/V2/{param2}/{param3}/"
+  :endpoint: Activity/User/{param1}/Following/V2/{param2}/{param3}/
 get_followers_of_tag:
   :name: GetFollowersOfTag
   :method: get
-  :endpoint: "/Activity/Tag/Followers/"
+  :endpoint: Activity/Tag/Followers/
 get_followers_of_user:
   :name: GetFollowersOfUser
   :method: get
-  :endpoint: "/Activity/User/{profileId}/Followers/"
+  :endpoint: Activity/User/{profileId}/Followers/
 get_forum_activity_for_user:
   :name: GetForumActivityForUser
   :method: get
-  :endpoint: "/Activity/User/{param1}/Activities/Forums/"
+  :endpoint: Activity/User/{param1}/Activities/Forums/
 get_forum_activity_for_user_v2:
   :name: GetForumActivityForUserV2
   :method: get
-  :endpoint: "/Activity/User/{param1}/Activities/ForumsV2/"
+  :endpoint: Activity/User/{param1}/Activities/ForumsV2/
 get_friends:
   :name: GetFriends
   :method: get
-  :endpoint: "/Activity/Friends/"
+  :endpoint: Activity/Friends/
 get_friends_all_no_presence:
   :name: GetFriendsAllNoPresence
   :method: get
-  :endpoint: "/Activity/Friends/AllNoPresence/{param1}/"
+  :endpoint: Activity/Friends/AllNoPresence/{param1}/
 get_friends_paged:
   :name: GetFriendsPaged
   :method: get
-  :endpoint: "/Activity/Friends/Paged/{membershipType}/{currentPage}/"
+  :endpoint: Activity/Friends/Paged/{membershipType}/{currentPage}/
 get_groups_followed_by_current_user:
   :name: GetGroupsFollowedByCurrentUser
   :method: get
-  :endpoint: "/Activity/Following/Groups/"
+  :endpoint: Activity/Following/Groups/
 get_groups_followed_by_user:
   :name: GetGroupsFollowedByUser
   :method: get
-  :endpoint: "/Activity/User/{param1}/Following/Groups/"
+  :endpoint: Activity/User/{param1}/Following/Groups/
 get_groups_followed_paged_by_current_user:
   :name: GetGroupsFollowedPagedByCurrentUser
   :method: get
-  :endpoint: "/Activity/Following/Groups/{param1}/"
+  :endpoint: Activity/Following/Groups/{param1}/
 get_groups_followed_paged_by_user:
   :name: GetGroupsFollowedPagedByUser
   :method: get
-  :endpoint: "/Activity/User/{param1}/Following/Groups/Paged/{param2}/"
+  :endpoint: Activity/User/{param1}/Following/Groups/Paged/{param2}/
 get_like_and_share_activity_for_user:
   :name: GetLikeAndShareActivityForUser
   :method: get
-  :endpoint: "/Activity/User/{param1}/Activities/LikesAndShares/"
+  :endpoint: Activity/User/{param1}/Activities/LikesAndShares/
 get_like_and_share_activity_for_user_v2:
   :name: GetLikeAndShareActivityForUserV2
   :method: get
-  :endpoint: "/Activity/User/{param1}/Activities/LikesAndSharesV2/"
+  :endpoint: Activity/User/{param1}/Activities/LikesAndSharesV2/
 get_like_share_and_forum_activity_for_user:
   :name: GetLikeShareAndForumActivityForUser
   :method: get
-  :endpoint: "/Activity/User/{param1}/Activities/LikeShareAndForum/"
+  :endpoint: Activity/User/{param1}/Activities/LikeShareAndForum/
 get_users_followed_by_current_user:
   :name: GetUsersFollowedByCurrentUser
   :method: get
-  :endpoint: "/Activity/Following/Users/"
+  :endpoint: Activity/Following/Users/
 unfollow_tag:
   :name: UnfollowTag
   :method: post
-  :endpoint: "/Activity/Tag/Unfollow/"
+  :endpoint: Activity/Tag/Unfollow/
 unfollow_user:
   :name: UnfollowUser
   :method: post
-  :endpoint: "/Activity/User/{param1}/Unfollow/"
+  :endpoint: Activity/User/{param1}/Unfollow/
 approve_all_pending:
   :name: ApproveAllPending
   :method: post
-  :endpoint: "/Group/{groupId}/Members/ApproveAll/"
+  :endpoint: Group/{groupId}/Members/ApproveAll/
 approve_group_membership:
   :name: ApproveGroupMembership
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/Approve/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/Approve/
 approve_group_membership_v2:
   :name: ApproveGroupMembershipV2
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/ApproveV2/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/ApproveV2/
 approve_pending_for_list:
   :name: ApprovePendingForList
   :method: post
-  :endpoint: "/Group/{groupId}/Members/ApproveList/"
+  :endpoint: Group/{groupId}/Members/ApproveList/
 ban_member:
   :name: BanMember
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/Ban/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/Ban/
 break_alliance:
   :name: BreakAlliance
   :method: post
-  :endpoint: "/Group/{groupId}/Relationship/{allyGroupId}/BreakAlliance/"
+  :endpoint: Group/{groupId}/Relationship/{allyGroupId}/BreakAlliance/
 break_alliances:
   :name: BreakAlliances
   :method: post
-  :endpoint: "/Group/{groupId}/BreakAlliances/"
+  :endpoint: Group/{groupId}/BreakAlliances/
 create_group:
   :name: CreateGroup
   :method: post
-  :endpoint: "/Group/Create/"
+  :endpoint: Group/Create/
 create_group_v2:
   :name: CreateGroupV2
   :method: post
-  :endpoint: "/Group/Create/V2/"
+  :endpoint: Group/Create/V2/
 create_minimal_group:
   :name: CreateMinimalGroup
   :method: post
-  :endpoint: "/Group/Create/Minimal/"
+  :endpoint: Group/Create/Minimal/
 deny_all_pending:
   :name: DenyAllPending
   :method: post
-  :endpoint: "/Group/{groupId}/Members/DenyAll/"
+  :endpoint: Group/{groupId}/Members/DenyAll/
 deny_group_membership:
   :name: DenyGroupMembership
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/Deny/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/Deny/
 deny_group_membership_v2:
   :name: DenyGroupMembershipV2
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/DenyV2/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/DenyV2/
 deny_pending_for_list:
   :name: DenyPendingForList
   :method: post
-  :endpoint: "/Group/{groupId}/Members/DenyList/"
+  :endpoint: Group/{groupId}/Members/DenyList/
 disable_clan_for_group:
   :name: DisableClanForGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Clans/Disable/{clanMembershipType}/"
+  :endpoint: Group/{groupId}/Clans/Disable/{clanMembershipType}/
 disband_alliance:
   :name: DisbandAlliance
   :method: post
-  :endpoint: "/Group/{groupId}/BreakAllAlliances/"
+  :endpoint: Group/{groupId}/BreakAllAlliances/
 edit_group:
   :name: EditGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Edit/"
+  :endpoint: Group/{groupId}/Edit/
 edit_group_membership:
   :name: EditGroupMembership
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/SetMembershipType/{groupMembershipType}/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/SetMembershipType/{groupMembershipType}/
 edit_group_v2:
   :name: EditGroupV2
   :method: post
-  :endpoint: "/Group/{groupId}/EditV2/"
+  :endpoint: Group/{groupId}/EditV2/
 enable_clan_for_group:
   :name: EnableClanForGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Clans/Enable/{clanMembershipType}/"
+  :endpoint: Group/{groupId}/Clans/Enable/{clanMembershipType}/
 follow_groups_with_group:
   :name: FollowGroupsWithGroup
   :method: post
-  :endpoint: "/Group/{groupId}/FollowList/"
+  :endpoint: Group/{groupId}/FollowList/
 follow_group_with_group:
   :name: FollowGroupWithGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Follow/{followGroupId}/"
+  :endpoint: Group/{groupId}/Follow/{followGroupId}/
 get_admins_of_group:
   :name: GetAdminsOfGroup
   :method: get
-  :endpoint: "/Group/{groupId}/Admins/"
+  :endpoint: Group/{groupId}/Admins/
 get_admins_of_group_v2:
   :name: GetAdminsOfGroupV2
   :method: get
-  :endpoint: "/Group/{groupId}/AdminsV2/"
+  :endpoint: Group/{groupId}/AdminsV2/
 get_all_founded_groups_for_member:
   :name: GetAllFoundedGroupsForMember
   :method: get
-  :endpoint: "/Group/User/{param1}/Founded/All/"
+  :endpoint: Group/User/{param1}/Founded/All/
 get_all_groups_for_current_member:
   :name: GetAllGroupsForCurrentMember
   :method: get
-  :endpoint: "/Group/MyGroups/All/"
+  :endpoint: Group/MyGroups/All/
 get_all_groups_for_member:
   :name: GetAllGroupsForMember
   :method: get
-  :endpoint: "/Group/User/{membershipId}/All/"
+  :endpoint: Group/User/{membershipId}/All/
 get_allied_groups:
   :name: GetAlliedGroups
   :method: get
-  :endpoint: "/Group/{groupId}/Allies/"
+  :endpoint: Group/{groupId}/Allies/
 get_available_avatars_(group):
   :name: GetAvailableAvatars (Group)
   :method: get
-  :endpoint: "/Group/GetAvailableAvatars/"
+  :endpoint: Group/GetAvailableAvatars/
 get_available_themes_(group):
   :name: GetAvailableThemes (Group)
   :method: get
-  :endpoint: "/Group/GetAvailableThemes/"
+  :endpoint: Group/GetAvailableThemes/
 get_banned_members_of_group:
   :name: GetBannedMembersOfGroup
   :method: get
-  :endpoint: "/Group/{groupId}/Banned/"
+  :endpoint: Group/{groupId}/Banned/
 get_banned_members_of_group_v2:
   :name: GetBannedMembersOfGroupV2
   :method: get
-  :endpoint: "/Group/{groupId}/BannedV2/"
+  :endpoint: Group/{groupId}/BannedV2/
 get_clan_attribute_definitions:
   :name: GetClanAttributeDefinitions
   :method: get
-  :endpoint: "/Group/GetClanAttributeDefinitions/"
+  :endpoint: Group/GetClanAttributeDefinitions/
 get_deleted_groups_for_current_member:
   :name: GetDeletedGroupsForCurrentMember
   :method: get
-  :endpoint: "/Group/MyGroups/Deleted/"
+  :endpoint: Group/MyGroups/Deleted/
 get_founded_groups_for_member:
   :name: GetFoundedGroupsForMember
   :method: get
-  :endpoint: "/Group/User/{membershipId}/Founded/{currentPage}/"
+  :endpoint: Group/User/{membershipId}/Founded/{currentPage}/
 get_group:
   :name: GetGroup
   :method: get
-  :endpoint: "/Group/{groupId}/"
+  :endpoint: Group/{groupId}/
 get_group_by_name:
   :name: GetGroupByName
   :method: get
-  :endpoint: "/Group/Name/{groupName}/"
+  :endpoint: Group/Name/{groupName}/
 get_groups_followed_by_group:
   :name: GetGroupsFollowedByGroup
   :method: get
-  :endpoint: "/Group/{groupId}/Following/{currentPage}/"
+  :endpoint: Group/{groupId}/Following/{currentPage}/
 get_groups_following_group:
   :name: GetGroupsFollowingGroup
   :method: get
-  :endpoint: "/Group/{groupId}/FollowedBy/{currentPage}/"
+  :endpoint: Group/{groupId}/FollowedBy/{currentPage}/
 get_group_tag_suggestions:
   :name: GetGroupTagSuggestions
   :method: get
-  :endpoint: "/Group/GetGroupTagSuggestions/"
+  :endpoint: Group/GetGroupTagSuggestions/
 get_joined_groups_for_current_member:
   :name: GetJoinedGroupsForCurrentMember
   :method: get
-  :endpoint: "/Group/MyGroups/"
+  :endpoint: Group/MyGroups/
 get_joined_groups_for_current_member_v2:
   :name: GetJoinedGroupsForCurrentMemberV2
   :method: get
-  :endpoint: "/Group/MyGroups/V2/{currentPage}/"
+  :endpoint: Group/MyGroups/V2/{currentPage}/
 get_joined_groups_for_member:
   :name: GetJoinedGroupsForMember
   :method: get
-  :endpoint: "/Group/User/{membershipId}/"
+  :endpoint: Group/User/{membershipId}/
 get_joined_groups_for_member_v2:
   :name: GetJoinedGroupsForMemberV2
   :method: get
-  :endpoint: "/Group/User/{membershipId}/Joined/{currentPage}/"
+  :endpoint: Group/User/{membershipId}/Joined/{currentPage}/
 get_joined_groups_for_member_v3:
   :name: GetJoinedGroupsForMemberV3
   :method: get
-  :endpoint: "/Group/User/{membershipId}/JoinedV3/{currentPage}/"
+  :endpoint: Group/User/{membershipId}/JoinedV3/{currentPage}/
 get_members_of_clan:
   :name: GetMembersOfClan
   :method: get
-  :endpoint: "/Group/{groupId}/ClanMembers/"
+  :endpoint: Group/{groupId}/ClanMembers/
 get_members_of_group:
   :name: GetMembersOfGroup
   :method: get
-  :endpoint: "/Group/{groupId}/Members/"
+  :endpoint: Group/{groupId}/Members/
 get_members_of_group_v2:
   :name: GetMembersOfGroupV2
   :method: get
-  :endpoint: "/Group/{groupId}/MembersV2/"
+  :endpoint: Group/{groupId}/MembersV2/
 get_members_of_group_v3:
   :name: GetMembersOfGroupV3
   :method: get
-  :endpoint: "/Group/{groupId}/MembersV3/"
+  :endpoint: Group/{groupId}/MembersV3/
 get_my_clan_memberships:
   :name: GetMyClanMemberships
   :method: get
-  :endpoint: "/Group/MyClans/"
+  :endpoint: Group/MyClans/
 get_pending_clan_memberships:
   :name: GetPendingClanMemberships
   :method: get
-  :endpoint: "/Group/{groupId}/Clan/{clanMembershipType}/Pending/{currentPage}/"
+  :endpoint: Group/{groupId}/Clan/{clanMembershipType}/Pending/{currentPage}/
 get_pending_groups_for_current_member:
   :name: GetPendingGroupsForCurrentMember
   :method: get
-  :endpoint: "/Group/MyPendingGroups/"
+  :endpoint: Group/MyPendingGroups/
 get_pending_groups_for_current_member_v2:
   :name: GetPendingGroupsForCurrentMemberV2
   :method: get
-  :endpoint: "/Group/MyPendingGroups/V2/{currentPage}/"
+  :endpoint: Group/MyPendingGroups/V2/{currentPage}/
 get_pending_groups_for_member:
   :name: GetPendingGroupsForMember
   :method: get
-  :endpoint: "/Group/User/{membershipId}/Pending/"
+  :endpoint: Group/User/{membershipId}/Pending/
 get_pending_groups_for_member_v2:
   :name: GetPendingGroupsForMemberV2
   :method: get
-  :endpoint: "/Group/User/{membershipId}/PendingV2/{currentPage}/"
+  :endpoint: Group/User/{membershipId}/PendingV2/{currentPage}/
 get_pending_memberships:
   :name: GetPendingMemberships
   :method: get
-  :endpoint: "/Group/{groupId}/Members/Pending/"
+  :endpoint: Group/{groupId}/Members/Pending/
 get_pending_memberships_v2:
   :name: GetPendingMembershipsV2
   :method: get
-  :endpoint: "/Group/{groupId}/Members/PendingV2/"
+  :endpoint: Group/{groupId}/Members/PendingV2/
 get_recommended_groups:
   :name: GetRecommendedGroups
   :method: post
-  :endpoint: "/Group/Recommended/"
+  :endpoint: Group/Recommended/
 group_search:
   :name: GroupSearch
   :method: post
-  :endpoint: "/Group/Search/"
+  :endpoint: Group/Search/
 invite_clan_member:
   :name: InviteClanMember
   :method: post
-  :endpoint: "/Group/{groupId}/InviteToClan/{membershipId}/{clanMembershipType}/"
+  :endpoint: Group/{groupId}/InviteToClan/{membershipId}/{clanMembershipType}/
 invite_group_member:
   :name: InviteGroupMember
   :method: post
-  :endpoint: "/Group/{groupId}/Invite/{membershipId}/"
+  :endpoint: Group/{groupId}/Invite/{membershipId}/
 invite_many_to_join_alliance:
   :name: InviteManyToJoinAlliance
   :method: post
-  :endpoint: "/Group/{groupId}/Allies/InviteMany/"
+  :endpoint: Group/{groupId}/Allies/InviteMany/
 invite_to_join_alliance:
   :name: InviteToJoinAlliance
   :method: post
-  :endpoint: "/Group/{groupId}/Allies/Invite/{allyGroupId}/"
+  :endpoint: Group/{groupId}/Allies/Invite/{allyGroupId}/
 join_clan_for_group:
   :name: JoinClanForGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Clans/Join/{clanMembershipType}/"
+  :endpoint: Group/{groupId}/Clans/Join/{clanMembershipType}/
 kick_member:
   :name: KickMember
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/Kick/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/Kick/
 leave_clan_for_group:
   :name: LeaveClanForGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Clans/Leave/{clanMembershipType}/"
+  :endpoint: Group/{groupId}/Clans/Leave/{clanMembershipType}/
 migrate:
   :name: Migrate
   :method: post
-  :endpoint: "/Group/{param1}/Migrate/{param2}/{param3}/"
+  :endpoint: Group/{param1}/Migrate/{param2}/{param3}/
 override_founder_admin:
   :name: OverrideFounderAdmin
   :method: post
-  :endpoint: "/Group/{groupId}/Admin/FounderOverride/{membershipType}/"
+  :endpoint: Group/{groupId}/Admin/FounderOverride/{membershipType}/
 refresh_clan_settings_in_destiny:
   :name: RefreshClanSettingsInDestiny
   :method: post
-  :endpoint: "/Group/MyClans/Refresh/{clanMembershipType}/"
+  :endpoint: Group/MyClans/Refresh/{clanMembershipType}/
 request_group_membership:
   :name: RequestGroupMembership
   :method: post
-  :endpoint: "/Group/{groupId}/Members/Apply/"
+  :endpoint: Group/{groupId}/Members/Apply/
 request_group_membership_v2:
   :name: RequestGroupMembershipV2
   :method: post
-  :endpoint: "/Group/{groupId}/Members/ApplyV2/"
+  :endpoint: Group/{groupId}/Members/ApplyV2/
 request_to_join_alliance:
   :name: RequestToJoinAlliance
   :method: post
-  :endpoint: "/Group/{groupId}/Allies/RequestToJoin/{allyGroupId}/"
+  :endpoint: Group/{groupId}/Allies/RequestToJoin/{allyGroupId}/
 rescind_group_membership:
   :name: RescindGroupMembership
   :method: post
-  :endpoint: "/Group/{groupId}/Members/Rescind/"
+  :endpoint: Group/{groupId}/Members/Rescind/
 set_group_as_alliance:
   :name: SetGroupAsAlliance
   :method: post
-  :endpoint: "/Group/{groupId}/SetAsAlliance/"
+  :endpoint: Group/{groupId}/SetAsAlliance/
 set_privacy:
   :name: SetPrivacy
   :method: post
-  :endpoint: "/Group/{groupId}/Privacy/{param2}/"
+  :endpoint: Group/{groupId}/Privacy/{param2}/
 unban_member:
   :name: UnbanMember
   :method: post
-  :endpoint: "/Group/{groupId}/Members/{membershipId}/Unban/"
+  :endpoint: Group/{groupId}/Members/{membershipId}/Unban/
 undelete_group:
   :name: UndeleteGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Undelete/"
+  :endpoint: Group/{groupId}/Undelete/
 unfollow_all_groups_with_group:
   :name: UnfollowAllGroupsWithGroup
   :method: post
-  :endpoint: "/Group/{groupId}/UnfollowAll/"
+  :endpoint: Group/{groupId}/UnfollowAll/
 unfollow_groups_with_group:
   :name: UnfollowGroupsWithGroup
   :method: post
-  :endpoint: "/Group/{groupId}/UnfollowList/"
+  :endpoint: Group/{groupId}/UnfollowList/
 unfollow_group_with_group:
   :name: UnfollowGroupWithGroup
   :method: post
-  :endpoint: "/Group/{groupId}/Unfollow/{followGroupId}/"
+  :endpoint: Group/{groupId}/Unfollow/{followGroupId}/
 flag_item:
   :name: FlagItem
   :method: post
-  :endpoint: "/Ignore/Flag/"
+  :endpoint: Ignore/Flag/
 get_ignores_for_user:
   :name: GetIgnoresForUser
   :method: post
-  :endpoint: "/Ignore/MyIgnores/"
+  :endpoint: Ignore/MyIgnores/
 get_ignore_status_for_post:
   :name: GetIgnoreStatusForPost
   :method: get
-  :endpoint: "/Ignore/MyIgnores/Posts/{param1}/"
+  :endpoint: Ignore/MyIgnores/Posts/{param1}/
 get_ignore_status_for_user:
   :name: GetIgnoreStatusForUser
   :method: get
-  :endpoint: "/Ignore/MyIgnores/Users/{param1}/"
+  :endpoint: Ignore/MyIgnores/Users/{param1}/
 get_report_context:
   :name: GetReportContext
   :method: get
-  :endpoint: "/Ignore/ReportContext/{param1}/"
+  :endpoint: Ignore/ReportContext/{param1}/
 ignore_item:
   :name: IgnoreItem
   :method: post
-  :endpoint: "/Ignore/Ignore/"
+  :endpoint: Ignore/Ignore/
 my_last_report:
   :name: MyLastReport
   :method: get
-  :endpoint: "/Ignore/MyLastReport/"
+  :endpoint: Ignore/MyLastReport/
 unignore_item:
   :name: UnignoreItem
   :method: post
-  :endpoint: "/Ignore/Unignore/"
+  :endpoint: Ignore/Unignore/
 get_player_games_by_id:
   :name: GetPlayerGamesById
   :method: get
-  :endpoint: "/Game/GetPlayerGamesById/{param1}/"
+  :endpoint: Game/GetPlayerGamesById/{param1}/
 reach_model_sneaker_net:
   :name: ReachModelSneakerNet
   :method: post
-  :endpoint: "/Game/ReachModelSneakerNet/{param1}/"
+  :endpoint: Game/ReachModelSneakerNet/{param1}/
 admin_user_search:
   :name: AdminUserSearch
   :method: get
-  :endpoint: "/Admin/Member/Search/"
+  :endpoint: Admin/Member/Search/
 bulk_edit_post:
   :name: BulkEditPost
   :method: post
-  :endpoint: "/Admin/BulkEditPost/"
+  :endpoint: Admin/BulkEditPost/
 get_admin_history:
   :name: GetAdminHistory
   :method: get
-  :endpoint: "/Admin/GlobalHistory/{param1}/{param2}/"
+  :endpoint: Admin/GlobalHistory/{param1}/{param2}/
 get_assigned_reports:
   :name: GetAssignedReports
   :method: post
-  :endpoint: "/Admin/Assigned/"
+  :endpoint: Admin/Assigned/
 get_disciplined_reports_for_member:
   :name: GetDisciplinedReportsForMember
   :method: post
-  :endpoint: "/Admin/Member/{param1}/Reports/"
+  :endpoint: Admin/Member/{param1}/Reports/
 get_recent_discipline_and_flag_history_for_member:
   :name: GetRecentDisciplineAndFlagHistoryForMember
   :method: get
-  :endpoint: "/Admin/Member/{param1}/RecentIncludingFlags/{param2}"
+  :endpoint: Admin/Member/{param1}/RecentIncludingFlags/{param2}
 get_resolved_reports:
   :name: GetResolvedReports
   :method: post
-  :endpoint: "/Admin/Reports/"
+  :endpoint: Admin/Reports/
 get_user_ban_state:
   :name: GetUserBanState
   :method: get
-  :endpoint: "/Admin/Member/{param1}/GetBanState/"
+  :endpoint: Admin/Member/{param1}/GetBanState/
 get_user_post_history:
   :name: GetUserPostHistory
   :method: get
-  :endpoint: "/Admin/Member/{param1}/PostHistory/{param2}/"
+  :endpoint: Admin/Member/{param1}/PostHistory/{param2}/
 get_user_web_client_ip_history:
   :name: GetUserWebClientIpHistory
   :method: get
-  :endpoint: "/Admin/Member/{param1}/GetWebClientIpHistory/"
+  :endpoint: Admin/Member/{param1}/GetWebClientIpHistory/
 globally_ignore_item:
   :name: GloballyIgnoreItem
   :method: post
-  :endpoint: "/Admin/Ignores/GloballyIgnore/"
+  :endpoint: Admin/Ignores/GloballyIgnore/
 override_ban_on_user:
   :name: OverrideBanOnUser
   :method: post
-  :endpoint: "/Admin/Member/{param1}/SetBan/"
+  :endpoint: Admin/Member/{param1}/SetBan/
 override_global_ignore:
   :name: OverrideGlobalIgnore
   :method: post
-  :endpoint: "/Admin/Ignores/OverrideGlobalIgnore/"
+  :endpoint: Admin/Ignores/OverrideGlobalIgnore/
 override_group_wall_ban_on_user:
   :name: OverrideGroupWallBanOnUser
   :method: post
-  :endpoint: "/Admin/Member/{param1}/SetGroupWallBan/"
+  :endpoint: Admin/Member/{param1}/SetGroupWallBan/
 override_msg_ban_on_user:
   :name: OverrideMsgBanOnUser
   :method: post
-  :endpoint: "/Admin/Member/{param1}/SetMsgBan/"
+  :endpoint: Admin/Member/{param1}/SetMsgBan/
 overturn_report:
   :name: OverturnReport
   :method: post
-  :endpoint: "/Admin/Reports/Overturn/"
+  :endpoint: Admin/Reports/Overturn/
 resolve_report:
   :name: ResolveReport
   :method: post
-  :endpoint: "/Admin/Assigned/Resolve/"
+  :endpoint: Admin/Assigned/Resolve/
+return_assigned_reports:
+  :name: ReturnAssignedReports
+  :method: post
+  :endpoint: Admin/Assigned/ReturnAll
+get_trending_categories:
+  :name: GetTrendingCategories
+  :method: get
+  :endpoint: Trending/Categories/
+get_trending_category:
+  :name: GetTrendingCategory
+  :method: get
+  :endpoint: Trending/Categories/{param1}/{param2}/
+get_trending_entry_detail:
+  :name: GetTrendingEntryDetail
+  :method: get
+  :endpoint: Trending/Details/{param1}/{param2}/
 apply_offer_to_current_destiny_membership:
   :name: ApplyOfferToCurrentDestinyMembership
   :method: post
-  :endpoint: "/Tokens/ApplyOfferToCurrentDestinyMembership/{param1}/{param2}/"
+  :endpoint: Tokens/ApplyOfferToCurrentDestinyMembership/{param1}/{param2}/
 break_bond:
   :name: BreakBond
   :method: post
-  :endpoint: "/Tokens/RAF/BreakBond/"
+  :endpoint: Tokens/RAF/BreakBond/
 claim_and_apply_on_token:
   :name: ClaimAndApplyOnToken
   :method: post
-  :endpoint: "/Tokens/ClaimAndApplyToken/{tokenType}/"
+  :endpoint: Tokens/ClaimAndApplyToken/{tokenType}/
 claim_token:
   :name: ClaimToken
   :method: post
-  :endpoint: "/Tokens/Claim/"
+  :endpoint: Tokens/Claim/
 consume_marketplace_platform_code_offer:
   :name: ConsumeMarketplacePlatformCodeOffer
   :method: post
-  :endpoint: "/Tokens/ConsumeMarketplacePlatformCodeOffer/{param1}/{param2}/{param3}/"
+  :endpoint: Tokens/ConsumeMarketplacePlatformCodeOffer/{param1}/{param2}/{param3}/
 get_current_user_offer_history:
   :name: GetCurrentUserOfferHistory
   :method: get
-  :endpoint: "/Tokens/OfferHistory/"
+  :endpoint: Tokens/OfferHistory/
 get_current_user_throttle_state:
   :name: GetCurrentUserThrottleState
   :method: get
-  :endpoint: "/Tokens/ThrottleState/"
+  :endpoint: Tokens/ThrottleState/
 get_raf_eligibility:
   :name: GetRAFEligibility
   :method: get
-  :endpoint: "/Tokens/RAF/GetEligibility/"
+  :endpoint: Tokens/RAF/GetEligibility/
 marketplace_platform_code_offer_history:
   :name: MarketplacePlatformCodeOfferHistory
   :method: get
-  :endpoint: "/Tokens/MarketplacePlatformCodeOfferHistory/"
+  :endpoint: Tokens/MarketplacePlatformCodeOfferHistory/
 raf_claim:
   :name: RAFClaim
   :method: post
-  :endpoint: "/Tokens/RAF/Claim/"
+  :endpoint: Tokens/RAF/Claim/
 raf_generate_referral_code:
   :name: RAFGenerateReferralCode
   :method: post
-  :endpoint: "/Tokens/RAF/GenerateReferralCode/{param1}/"
+  :endpoint: Tokens/RAF/GenerateReferralCode/{param1}/
 raf_get_new_player_bond_details:
   :name: RAFGetNewPlayerBondDetails
   :method: get
-  :endpoint: "/Tokens/RAF/GetNewPlayerBondDetails/"
+  :endpoint: Tokens/RAF/GetNewPlayerBondDetails/
 raf_get_veteran_bond_details:
   :name: RAFGetVeteranBondDetails
   :method: get
-  :endpoint: "/Tokens/RAF/GetVeteranBondDetails/"
+  :endpoint: Tokens/RAF/GetVeteranBondDetails/
 verify_age:
   :name: VerifyAge
   :method: post
-  :endpoint: "/Tokens/VerifyAge/"
+  :endpoint: Tokens/VerifyAge/
 equip_item:
   :name: EquipItem
   :method: post
-  :endpoint: "/Destiny/EquipItem/"
+  :endpoint: Destiny/EquipItem/
 equip_items:
   :name: EquipItems
   :method: post
-  :endpoint: "/Destiny/EquipItems/"
+  :endpoint: Destiny/EquipItems/
 get_account:
   :name: GetAccount
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/
 get_account_summary:
   :name: GetAccountSummary
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Summary/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Summary/
 get_activity_blob:
   :name: GetActivityBlob
   :method: get
-  :endpoint: "/Destiny/Stats/ActivityBlob/{e}/"
+  :endpoint: Destiny/Stats/ActivityBlob/{e}/
 get_activity_history:
   :name: GetActivityHistory
   :method: get
-  :endpoint: "/Destiny/Stats/ActivityHistory/{membershipType}/{destinyMembershipId}/{characterId}/"
+  :endpoint: Destiny/Stats/ActivityHistory/{membershipType}/{destinyMembershipId}/{characterId}/
 get_advisors_for_account:
   :name: GetAdvisorsForAccount
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Advisors/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Advisors/
 get_advisors_for_character:
   :name: GetAdvisorsForCharacter
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Advisors/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Advisors/
 get_advisors_for_character_v2:
   :name: GetAdvisorsForCharacterV2
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Advisors/V2/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Advisors/V2/
 get_advisors_for_current_character:
   :name: GetAdvisorsForCurrentCharacter
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Advisors/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Character/{characterId}/Advisors/
 get_all_items_summary:
   :name: GetAllItemsSummary
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Items/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Items/
 get_all_vendors_for_current_character:
   :name: GetAllVendorsForCurrentCharacter
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendors/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendors/
 get_bond_advisors:
   :name: GetBondAdvisors
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Advisors/Bonds/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Advisors/Bonds/
 get_character:
   :name: GetCharacter
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Complete/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Complete/
 get_character_activities:
   :name: GetCharacterActivities
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Activities/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Activities/
 get_character_inventory:
   :name: GetCharacterInventory
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Inventory/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Inventory/
 get_character_inventory_summary:
   :name: GetCharacterInventorySummary
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Inventory/Summary/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Inventory/Summary/
 get_character_progression:
   :name: GetCharacterProgression
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Progression/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Progression/
 get_character_summary:
   :name: GetCharacterSummary
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/
 get_clan_leaderboards:
   :name: GetClanLeaderboards
   :method: get
-  :endpoint: "/Destiny/Stats/ClanLeaderboards/{param1}/"
+  :endpoint: Destiny/Stats/ClanLeaderboards/{param1}/
 get_destiny_aggregate_activity_stats:
   :name: GetDestinyAggregateActivityStats
   :method: get
-  :endpoint: "/Destiny/Stats/AggregateActivityStats/{membershipType}/{destinyMembershipId}/{characterId}/"
+  :endpoint: Destiny/Stats/AggregateActivityStats/{membershipType}/{destinyMembershipId}/{characterId}/
 get_destiny_explorer_items:
   :name: GetDestinyExplorerItems
   :method: get
-  :endpoint: "/Destiny/Explorer/Items/"
+  :endpoint: Destiny/Explorer/Items/
 get_destiny_explorer_talent_node_steps:
   :name: GetDestinyExplorerTalentNodeSteps
   :method: get
-  :endpoint: "/Destiny/Explorer/TalentNodeSteps/"
+  :endpoint: Destiny/Explorer/TalentNodeSteps/
 get_destiny_live_tile_content_items:
   :name: GetDestinyLiveTileContentItems
   :method: get
-  :endpoint: "/Destiny/LiveTiles/"
+  :endpoint: Destiny/LiveTiles/
 get_destiny_manifest:
   :name: GetDestinyManifest
   :method: get
-  :endpoint: "/Destiny/Manifest/"
+  :endpoint: Destiny/Manifest/
 get_destiny_single_definition:
   :name: GetDestinySingleDefinition
   :method: get
-  :endpoint: "/Destiny/Manifest/{definitionType}/{definitionId}/"
+  :endpoint: Destiny/Manifest/{definitionType}/{definitionId}/
 get_excellence_badges:
   :name: GetExcellenceBadges
   :method: get
-  :endpoint: "/Destiny/Stats/GetExcellenceBadges/{membershipType}/{destinyMembershipId}/"
+  :endpoint: Destiny/Stats/GetExcellenceBadges/{membershipType}/{destinyMembershipId}/
 get_grimoire_by_membership:
   :name: GetGrimoireByMembership
   :method: get
-  :endpoint: "/Destiny/Vanguard/Grimoire/{membershipType}/{destinyMembershipId}/"
+  :endpoint: Destiny/Vanguard/Grimoire/{membershipType}/{destinyMembershipId}/
 get_grimoire_definition:
   :name: GetGrimoireDefinition
   :method: get
-  :endpoint: "/Destiny/Vanguard/Grimoire/Definition/"
+  :endpoint: Destiny/Vanguard/Grimoire/Definition/
 get_historical_stats:
   :name: GetHistoricalStats
   :method: get
-  :endpoint: "/Destiny/Stats/{membershipType}/{destinyMembershipId}/{characterId}/"
+  :endpoint: Destiny/Stats/{membershipType}/{destinyMembershipId}/{characterId}/
 get_historical_stats_definition:
   :name: GetHistoricalStatsDefinition
   :method: get
-  :endpoint: "/Destiny/Stats/Definition/"
+  :endpoint: Destiny/Stats/Definition/
 get_historical_stats_for_account:
   :name: GetHistoricalStatsForAccount
   :method: get
-  :endpoint: "/Destiny/Stats/Account/{membershipType}/{destinyMembershipId}/"
+  :endpoint: Destiny/Stats/Account/{membershipType}/{destinyMembershipId}/
 get_item_detail:
   :name: GetItemDetail
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Inventory/{itemInstanceId}/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Character/{characterId}/Inventory/{itemInstanceId}/
 get_item_reference_detail:
   :name: GetItemReferenceDetail
   :method: get
-  :endpoint: "/Destiny/{param1}/Account/{param2}/Character/{param3}/ItemReference/{param4}/"
+  :endpoint: Destiny/{param1}/Account/{param2}/Character/{param3}/ItemReference/{param4}/
 get_leaderboards:
   :name: GetLeaderboards
   :method: get
-  :endpoint: "/Destiny/Stats/Leaderboards/{membershipType}/{destinyMembershipId}/"
+  :endpoint: Destiny/Stats/Leaderboards/{membershipType}/{destinyMembershipId}/
 get_leaderboards_for_character:
   :name: GetLeaderboardsForCharacter
   :method: get
-  :endpoint: "/Destiny/Stats/Leaderboards/{membershipType}/{destinyMembershipId}/{characterId}/"
+  :endpoint: Destiny/Stats/Leaderboards/{membershipType}/{destinyMembershipId}/{characterId}/
 get_leaderboards_for_psn:
   :name: GetLeaderboardsForPsn
   :method: get
-  :endpoint: "/Destiny/Stats/LeaderboardsForPsn/"
+  :endpoint: Destiny/Stats/LeaderboardsForPsn/
 get_membership_id_by_display_name:
   :name: GetMembershipIdByDisplayName
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Stats/GetMembershipIdByDisplayName/{displayName}/"
+  :endpoint: Destiny/{membershipType}/Stats/GetMembershipIdByDisplayName/{displayName}/
 get_my_grimoire:
   :name: GetMyGrimoire
   :method: get
-  :endpoint: "/Destiny/Vanguard/Grimoire/{membershipType}/"
+  :endpoint: Destiny/Vanguard/Grimoire/{membershipType}/
 get_post_game_carnage_report:
   :name: GetPostGameCarnageReport
   :method: get
-  :endpoint: "/Destiny/Stats/PostGameCarnageReport/{activityInstanceId}/"
+  :endpoint: Destiny/Stats/PostGameCarnageReport/{activityInstanceId}/
 get_public_advisors:
   :name: GetPublicAdvisors
   :method: get
-  :endpoint: "/Destiny/Advisors/"
+  :endpoint: Destiny/Advisors/
 get_public_advisors_v2:
   :name: GetPublicAdvisorsV2
   :method: get
-  :endpoint: "/Destiny/Advisors/V2/"
+  :endpoint: Destiny/Advisors/V2/
 get_public_vendor:
   :name: GetPublicVendor
   :method: get
-  :endpoint: "/Destiny/Vendors/{vendorId}/"
+  :endpoint: Destiny/Vendors/{vendorId}/
 get_public_vendor_with_metadata:
   :name: GetPublicVendorWithMetadata
   :method: get
-  :endpoint: "/Destiny/Vendors/{vendorId}/Metadata/"
+  :endpoint: Destiny/Vendors/{vendorId}/Metadata/
 get_public_xur_vendor:
   :name: GetPublicXurVendor
   :method: get
-  :endpoint: "/Destiny/Advisors/Xur/"
+  :endpoint: Destiny/Advisors/Xur/
 get_record_book_completion_status:
   :name: GetRecordBookCompletionStatus
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/RecordBooks/{recordBookHash}/Completion/"
+  :endpoint: Destiny/{membershipType}/MyAccount/RecordBooks/{recordBookHash}/Completion/
 get_special_event_advisors:
   :name: GetSpecialEventAdvisors
   :method: get
-  :endpoint: "/Destiny/Events/"
+  :endpoint: Destiny/Events/
 get_triumphs:
   :name: GetTriumphs
   :method: get
-  :endpoint: "/Destiny/{membershipType}/Account/{destinyMembershipId}/Triumphs/"
+  :endpoint: Destiny/{membershipType}/Account/{destinyMembershipId}/Triumphs/
 get_unique_weapon_history:
   :name: GetUniqueWeaponHistory
   :method: get
-  :endpoint: "/Destiny/Stats/UniqueWeapons/{membershipType}/{destinyMembershipId}/{characterId}/"
+  :endpoint: Destiny/Stats/UniqueWeapons/{membershipType}/{destinyMembershipId}/{characterId}/
 get_vault:
   :name: GetVault
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Vault/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Vault/
 get_vault_summary:
   :name: GetVaultSummary
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Vault/Summary/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Vault/Summary/
 get_vendor_for_current_character:
   :name: GetVendorForCurrentCharacter
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/
 get_vendor_for_current_character_with_metadata:
   :name: GetVendorForCurrentCharacterWithMetadata
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/Metadata/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/Metadata/
 get_vendor_item_detail_for_current_character:
   :name: GetVendorItemDetailForCurrentCharacter
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/Item/{itemId}/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/Item/{itemId}/
 get_vendor_item_detail_for_current_character_with_metadata:
   :name: GetVendorItemDetailForCurrentCharacterWithMetadata
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/Item/{itemId}/Metadata/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendor/{vendorId}/Item/{itemId}/Metadata/
 get_vendor_summaries_for_current_character:
   :name: GetVendorSummariesForCurrentCharacter
   :method: get
-  :endpoint: "/Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendors/Summaries/"
+  :endpoint: Destiny/{membershipType}/MyAccount/Character/{characterId}/Vendors/Summaries/
 search_destiny_player:
   :name: SearchDestinyPlayer
   :method: get
-  :endpoint: "/Destiny/SearchDestinyPlayer/{membershipType}/{displayName}/"
+  :endpoint: Destiny/SearchDestinyPlayer/{membershipType}/{displayName}/
 set_item_lock_state:
   :name: SetItemLockState
   :method: post
-  :endpoint: "/Destiny/SetLockState/"
+  :endpoint: Destiny/SetLockState/
 set_quest_tracked_state:
   :name: SetQuestTrackedState
   :method: post
-  :endpoint: "/Destiny/SetQuestTrackedState/"
+  :endpoint: Destiny/SetQuestTrackedState/
 transfer_item:
   :name: TransferItem
   :method: post
-  :endpoint: "/Destiny/TransferItem/"
+  :endpoint: Destiny/TransferItem/
 admin_set_community_live_member_ban_status:
   :name: AdminSetCommunityLiveMemberBanStatus
   :method: post
-  :endpoint: "/CommunityContent/Live/Partnerships/{param1}/{param2}/Ban/{param3}/"
+  :endpoint: CommunityContent/Live/Partnerships/{param1}/{param2}/Ban/{param3}/
 admin_set_community_live_member_feature_status:
   :name: AdminSetCommunityLiveMemberFeatureStatus
   :method: post
-  :endpoint: "/CommunityContent/Live/Partnerships/{param1}/{param2}/Feature/{param3}/"
+  :endpoint: CommunityContent/Live/Partnerships/{param1}/{param2}/Feature/{param3}/
 alter_approval_state:
   :name: AlterApprovalState
   :method: post
-  :endpoint: "/CommunityContent/AlterApprovalState/{param1}/"
+  :endpoint: CommunityContent/AlterApprovalState/{param1}/
 edit_content:
   :name: EditContent
   :method: post
-  :endpoint: "/CommunityContent/Edit/{param1}/"
+  :endpoint: CommunityContent/Edit/{param1}/
 get_admin_community_live_statuses:
   :name: GetAdminCommunityLiveStatuses
   :method: get
-  :endpoint: "/CommunityContent/Live/Admin/{param1}/{param2}/{param3}/"
+  :endpoint: CommunityContent/Live/Admin/{param1}/{param2}/{param3}/
 get_approval_queue:
   :name: GetApprovalQueue
   :method: get
-  :endpoint: "/CommunityContent/Queue/{param1}/{param2}/{param3}/"
+  :endpoint: CommunityContent/Queue/{param1}/{param2}/{param3}/
 get_community_content:
   :name: GetCommunityContent
   :method: get
-  :endpoint: "/CommunityContent/Get/{param1}/{param2}/{param3}/"
+  :endpoint: CommunityContent/Get/{param1}/{param2}/{param3}/
 get_community_featured_activity_modes:
   :name: GetCommunityFeaturedActivityModes
   :method: get
-  :endpoint: "/CommunityContent/Live/ActivityModes/Featured/"
+  :endpoint: CommunityContent/Live/ActivityModes/Featured/
 get_community_live_statuses:
   :name: GetCommunityLiveStatuses
   :method: get
-  :endpoint: "/CommunityContent/Live/All/{partnershipType}/{communityStatusSort}/{page}/"
+  :endpoint: CommunityContent/Live/All/{partnershipType}/{communityStatusSort}/{page}/
 get_community_live_statuses_for_clanmates:
   :name: GetCommunityLiveStatusesForClanmates
   :method: get
-  :endpoint: "/CommunityContent/Live/Clan/{partnershipType}/{communityStatusSort}/{page}/"
+  :endpoint: CommunityContent/Live/Clan/{partnershipType}/{communityStatusSort}/{page}/
 get_community_live_statuses_for_friends:
   :name: GetCommunityLiveStatusesForFriends
   :method: get
-  :endpoint: "/CommunityContent/Live/Friends/{partnershipType}/{communityStatusSort}/{page}/"
+  :endpoint: CommunityContent/Live/Friends/{partnershipType}/{communityStatusSort}/{page}/
 get_featured_community_live_statuses:
   :name: GetFeaturedCommunityLiveStatuses
   :method: get
-  :endpoint: "/CommunityContent/Live/Featured/{partnershipType}/{communityStatusSort}/{page}/"
+  :endpoint: CommunityContent/Live/Featured/{partnershipType}/{communityStatusSort}/{page}/
 get_streaming_status_for_member:
   :name: GetStreamingStatusForMember
   :method: get
-  :endpoint: "/CommunityContent/Live/Users/{partnershipType}/{membershipType}/{membershipId}/"
+  :endpoint: CommunityContent/Live/Users/{partnershipType}/{membershipType}/{membershipId}/
 submit_content:
   :name: SubmitContent
   :method: post
-  :endpoint: "/CommunityContent/Submit/"
+  :endpoint: CommunityContent/Submit/
 get_available_locales:
   :name: GetAvailableLocales
   :method: get
-  :endpoint: "//GetAvailableLocales/"
+  :endpoint: "/GetAvailableLocales/"
 get_common_settings:
   :name: GetCommonSettings
   :method: get
-  :endpoint: "//Settings/"
+  :endpoint: "/Settings/"
 get_global_alerts:
   :name: GetGlobalAlerts
   :method: get
-  :endpoint: "//GlobalAlerts/"
+  :endpoint: "/GlobalAlerts/"
 get_system_status:
   :name: GetSystemStatus
   :method: get
-  :endpoint: "//Status/{param1}/"
+  :endpoint: "/Status/{param1}/"
 hello_world:
   :name: HelloWorld
   :method: get
-  :endpoint: "//HelloWorld/"
+  :endpoint: "/HelloWorld/"

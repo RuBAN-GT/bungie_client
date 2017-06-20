@@ -1,40 +1,22 @@
 # Class Client for GET/POST requests to Bungie.
-# For specific HTTP operations you can use @agent [Mechanzie].
+# For specific HTTP operations you can use @conn [Faraday].
 class BungieClient::Client
   BUNGIE_URI = 'https://www.bungie.net/Platform'
 
-  # Form uri for requests
-  #
-  # @param [String] uri
-  # @return [String]
-  def self.request_uri(uri)
-    "#{BUNGIE_URI}/#{uri.sub(/^\//, '').sub(/\/$/, '')}/"
-  end
-
-  # Format answer from bungie
+  # Format answer from Bungie
   #
   # @param [String] response
   #
-  # @return [Hashie::Mash]
-  def self.parse_response(response)
-    if !response.nil? && response != ''
-      response = MultiJson.load response rescue return Hashie::Mash.new
+  # @return [Mash]
+  def self.parse(response)
+    response = MultiJson.load response rescue {}
 
-      if response.is_a?(Hash) && !response['Response'].nil? && response['ErrorCode'] == 1
-        response = Hashie::Mash.new response
-
-        return response['Response']
-      end
-    end
-
-    Hashie::Mash.new
+    Hashie::Mash.new response
   end
 
   attr_reader :api_key
-  attr_reader :username
-  attr_reader :password
-  attr_reader :type
-  attr_reader :agent
+  attr_reader :token
+  attr_reader :conn
 
   # Init client
   #
@@ -44,10 +26,9 @@ class BungieClient::Client
   #
   # @param [Hash] options
   # @option options [String] :api_key
-  # @option options [Array|CookieJar] :cookies with [HTTP::Cookie] or [CookieJar]
-  # @option options [String] :token is authorization token from new oauth2
+  # @option options [String] :token is authorization token from oauth2
   def initialize(options)
-    # checking options and @api_key
+    # Checking options and @api_key
     raise 'Wrong options: It must be Hash.' unless options.is_a? Hash
 
     if options[:api_key].nil?
@@ -56,77 +37,44 @@ class BungieClient::Client
       @api_key = options[:api_key].to_s
     end
 
-    # set token
+    # Set token
     @token = options[:token].to_s unless options[:token].nil?
 
-    # init @agent
-    @agent = Mechanize.new do |config|
-      config.read_timeout = 5
-    end
+    # Init connection
+    @conn = Faraday.new :url => BUNGIE_URI do |builder|
+      builder.headers['Content-Type']  = 'application/json'
+      builder.headers['Accept']        = 'application/json'
+      builder.headers['X-API-Key']     = @api_key
+      builder.headers['Authorization'] = "Bearer #{@token}" unless @token.nil?
 
-    # merge cookies with options
-    unless options[:cookies].nil?
-      cookies = (options[:cookies].is_a? CookieJar) ? options[:cookies].cookies : options[:cookies]
+      builder.options.timeout      = 5
+      builder.options.open_timeout = 2
 
-      cookies.each do |cookie|
-        @agent.cookie_jar.add cookie
-      end
+      builder.use FaradayMiddleware::FollowRedirects, :limit => 5
+
+      builder.adapter :httpclient
     end
   end
 
-  # Get response from bungie services
+  # Get request to bungie service
   #
   # @see http://destinydevs.github.io/BungieNetPlatform/docs/Endpoints
   #
-  # @param [String] uri
-  # @param [Hash|Array] parameters for http-query
+  # @param [String] url
+  # @param [Hash] parameters for http-query
   #
-  # @return [String|nil]
-  def get(uri, parameters = {})
-    @agent.get(self.class.request_uri(uri), parameters, nil, headers).body rescue nil
+  # @return [Mash]
+  def get(url, parameters = {})
+    self.class.parse @conn.get(url, parameters).body rescue Hashie::Mash.new
   end
 
-  # Get Response field after sending GET request to bungie
+  # Post data to Bungie services
   #
-  # @param [String] uri
-  # @param [Hash|Array] parameters for http-query
-  #
-  # @return [Hashie::Mash]
-  def get_response(uri, parameters = {})
-    self.class.parse_response get(uri, parameters)
-  end
-
-  # Post data to bungie services
-  #
-  # @param [String] uri
+  # @param [String] url
   # @param [Hash] query
   #
-  # @return [String|nil]
-  def post(uri, query = {})
-    @agent.post(self.class.request_uri(uri), query, headers).body rescue nil
+  # @return [Mash]
+  def post(url, query = {})
+    self.class.parse @conn.post(url, query).body rescue Hashie::Mash.new
   end
-
-  # Get Response field after post request to bungie
-  #
-  # @param [String] uri
-  # @param [Hash] query for post
-  #
-  # @return [Hashie::Mash]
-  def post_response(uri, query = {})
-    self.class.parse_response post(uri, query)
-  end
-
-  protected
-
-    # Headers for requests
-    def headers
-      headers = {
-        'Accept' => 'json',
-        'Content-Type' => 'application/json',
-        'X-API-Key' => @api_key
-      }
-      headers['Authorization'] = "Bearer #{@token}" unless @token.nil?
-
-      headers
-    end
 end

@@ -29,15 +29,7 @@ It's main class that makes possible to send any requests to Bungie.
 **For this you should initialize your client for the next example:**
 
 ~~~~ruby
-@client = BungieClient::Client.new(
-  :api_key => 'YOUR_API_KEY'
-)
-~~~~
-
-**or simply:**
-
-~~~~ruby
-@client = BungieClient::Client.new :api_key => 'YOUR_API_KEY'
+client = BungieClient::Client.new :api_key => 'YOUR_API_KEY'
 ~~~~
 
 * The option `api_key` only necessary for this class and API. For getting API key, please visit the [bungie page](https://www.bungie.net/en/user/api).
@@ -46,7 +38,6 @@ It's main class that makes possible to send any requests to Bungie.
 
 #### How it initialized:
 
-* If you want to store your cookies in any place you can define they with `cookies` option without authentication.
 * If you want to use private API, you must get [Authorization token](https://www.bungie.net/en/Help/Article/45481) from Bungie Oauth2 and set `token` option.
 * After this operations your client is done for usage.
 
@@ -55,7 +46,7 @@ It's main class that makes possible to send any requests to Bungie.
 **Now you can send requests, e.g. for finding user information and getting his profile:**
 
 ~~~~ruby
-@client.get_response "Destiny/SearchDestinyPlayer/2/RuBAN-GT"
+client.get "Destiny/SearchDestinyPlayer/2/RuBAN-GT"
 ~~~~
 
 #### Note
@@ -69,19 +60,19 @@ If you don't like long code as for me you should use **Wrappers**. It's classes 
 The initialization of **Wrappers::Default** is similar to **Client**: all arguments of initializer will be passed to **Client** which is class variable of wrapper.
 
 ~~~~ruby
-@wrapper = BungieClient::Wrappers::Default.new :api_key => 'YOUR_API_KEY'
+wrapper = BungieClient::Wrappers::Default.new :api_key => 'YOUR_API_KEY'
 ~~~~
 
 Now you can sending your requests with beautiful and effective code:
 
 ~~~~ruby
-@wrapper.search_destiny_player :membershipType => '2', :displayName => 'RuBAN-GT'
+wrapper.search_destiny_player :membershipType => '2', :displayName => 'RuBAN-GT'
 ~~~~
 
 If you need **more** you can define your own wrappers such as **Wrappers::User**:
 
 ~~~~ruby
-@user = BungieClient::Wrappers::User.new(
+user = BungieClient::Wrappers::User.new(
   :api_key => 'YOUR_API_KEY',
   :display_name => 'RuBAN-GT',
   :membership_type => '2'
