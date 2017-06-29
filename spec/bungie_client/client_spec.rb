@@ -10,7 +10,7 @@ describe BungieClient::Client do
 
     client = BungieClient::Client.new(:api_key => 'good_key')
 
-    response = client.get "Destiny/SearchDestinyPlayer/2/RuBAN-GT"
+    response = client.get 'Destiny/SearchDestinyPlayer/2/RuBAN-GT', {}, {:sth => 5}
 
     expect(response&.ErrorCode).to eq(1)
   end
@@ -24,7 +24,7 @@ describe BungieClient::Client do
 
     client = BungieClient::Client.new(:api_key => 'bad_key')
 
-    response = client.get "Destiny/SearchDestinyPlayer/2/RuBAN-GT"
+    response = client.get 'Destiny/SearchDestinyPlayer/2/RuBAN-GT'
 
     expect(response&.ErrorCode).to eq(2101)
   end

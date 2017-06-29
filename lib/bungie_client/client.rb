@@ -62,19 +62,21 @@ class BungieClient::Client
   #
   # @param [String] url
   # @param [Hash] parameters for http-query
+  # @param [Hash] headers
   #
   # @return [Mash]
-  def get(url, parameters = {})
-    self.class.parse @conn.get(url, parameters).body rescue Hashie::Mash.new
+  def get(url, parameters = {}, headers = {})
+    self.class.parse @conn.get(url, parameters, headers).body rescue Hashie::Mash.new
   end
 
   # Post data to Bungie services
   #
   # @param [String] url
   # @param [Hash] query
+  # @param [Hash] headers
   #
   # @return [Mash]
   def post(url, query = {})
-    self.class.parse @conn.post(url, query).body rescue Hashie::Mash.new
+    self.class.parse @conn.post(url, query, headers).body rescue Hashie::Mash.new
   end
 end

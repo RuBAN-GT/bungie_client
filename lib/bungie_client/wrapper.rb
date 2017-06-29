@@ -45,19 +45,20 @@ class BungieClient::Wrapper
   # @param [String] service name in snake case
   # @param [Hash] params service parameters
   # @param [Hash] options for client request (get/post)
+  # @param [Hash] headers
   #
   # @return [Hashie::Mash]
-  def call_service(service, params = {}, options = {})
+  def call_service(service, params = {}, options = {}, headers = {})
     service = BungieClient::Service.new service rescue raise NoMethodError
 
     # change url
     url = self.fill_url service.endpoint, params
 
     # send request
-    client.send service.type, url, options
+    client.send service.type, url, options, headers
   end
 
   def method_missing(*args)
-    call_service args[0].to_s, args[1] || {}, args[2] || {}
+    call_service args[0].to_s, args[1] || {}, args[2] || {}, args[3] || {}
   end
 end

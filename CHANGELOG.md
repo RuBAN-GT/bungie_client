@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.1 (2017-06-30)
+
+### Changes
+
+* Client methods can allow to enter headers.
+
 ## 2.1.0 (2017-06-25)
 
 ### Fixes
