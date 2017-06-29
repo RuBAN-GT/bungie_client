@@ -76,7 +76,7 @@ class BungieClient::Client
   # @param [Hash] headers
   #
   # @return [Mash]
-  def post(url, query = {})
+  def post(url, query = {}, headers = {})
     self.class.parse @conn.post(url, query, headers).body rescue Hashie::Mash.new
   end
 end
