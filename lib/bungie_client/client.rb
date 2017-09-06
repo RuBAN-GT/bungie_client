@@ -1,7 +1,7 @@
 # Class Client for GET/POST requests to Bungie.
 # For specific HTTP operations you can use @conn [Faraday].
 class BungieClient::Client
-  BUNGIE_URI = 'https://www.bungie.net/Platform'
+  BUNGIE_URI = 'https://www.bungie.net/d1/Platform'
 
   # Format answer from Bungie
   #
@@ -52,7 +52,9 @@ class BungieClient::Client
 
       builder.use FaradayMiddleware::FollowRedirects, :limit => 5
 
-      builder.adapter :httpclient
+      builder.adapter :httpclient do |http|
+        http.allow_dot_domain_cookie = true
+      end
     end
   end
 
