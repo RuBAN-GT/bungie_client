@@ -1,8 +1,14 @@
 # Change Log
 
-## 2.1.2 (2017-09-06)
+## 2.1.3
 
-* Allow "Cookie#dot_domain" for `httpclient`.
+Hotfix
+
+## ~~2.1.2 (2017-09-06)~~
+
+Bad gem
+
+* ~~Allow "Cookie#dot_domain" for `httpclient`.~~
 
 ## 2.1.1 (2017-06-30)
 
