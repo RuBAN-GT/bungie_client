@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'yaml'
 require 'hashie'
 require 'nokogiri'
@@ -17,9 +19,9 @@ task :parse_services do
     next if tds.nil? || tds[1].nil?
 
     service = {
-      :name => tds[1].text,
-      :method => (tds[0]&.text.downcase || 'get'),
-      :endpoint => (tds[2]&.text || '')
+      name: tds[1].text,
+      method: (tds[0]&.text.downcase || 'get'),
+      endpoint: (tds[2]&.text || '')
     }
     service[:endpoint].slice! 0
 
