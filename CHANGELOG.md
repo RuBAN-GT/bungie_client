@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.2.0
+
+Thank you [brrusselburg](https://github.com/brrusselburg) for this release.
+
+* Actualised dependencies ([#2](https://github.com/RuBAN-GT/bungie_client/pull/2))
+* Code style updates
+
 ## 2.1.3
 
 Hotfix
